@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,View } from 'react-native';
+import { StyleSheet,View, ImageBackground } from 'react-native';
 import ProductOverview from './src/screens/shop/ProductOverview';
 
 
@@ -8,6 +8,12 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
+      <ImageBackground
+        source={ {uri:"https://media.istockphoto.com/photos/bicycle-with-full-clipping-path-picture-id171586627?s=612x612"} }
+        style={styles.image}
+        resizeMode='center'
+        />
+      
       <ProductOverview 
         title="Product Overview!!!"
       />
@@ -26,6 +32,6 @@ const styles = StyleSheet.create({
   },
   image:{
     width: '100%',
-    height: '80%'
+    height: '90%'
   }
 });
