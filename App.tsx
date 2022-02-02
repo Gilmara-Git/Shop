@@ -1,25 +1,30 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,View, ImageBackground } from 'react-native';
-import ProductOverview from './src/screens/shop/ProductOverview';
+import { StyleSheet,View } from 'react-native';
+import { createStore, combineReducers } from 'redux';
+import productsReducer from './src/store/reducers/reducers';
+import { Provider } from 'react-redux';
 
 
+const rootReducer = combineReducers({
+  products: productsReducer
+});
+
+const store =  createStore(rootReducer);
 
 export default function App() {
   return (
+    <Provider
+      store={store}
+    >
+
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <ImageBackground
-        source={ {uri:"https://media.istockphoto.com/photos/bicycle-with-full-clipping-path-picture-id171586627?s=612x612"} }
-        style={styles.image}
-        resizeMode='center'
-        />
-      
-      <ProductOverview 
-        title="Product Overview!!!"
-      />
+     
 
         
     </View>
+    </Provider>
   );
 }
 
