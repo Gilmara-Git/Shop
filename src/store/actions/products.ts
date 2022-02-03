@@ -1,5 +1,7 @@
 const UPDATEPRODUCT = 'UPDATEPRODUCT';
-
-export const updateProduct = (id)=>{
+type props = {
+    id: string;
+}
+export const updateProduct = (id: props)=>{
     return { type: UPDATEPRODUCT, pid: id }
 }
