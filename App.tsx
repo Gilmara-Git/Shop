@@ -2,13 +2,16 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet,View } from 'react-native';
 import { createStore, combineReducers } from 'redux';
-import productsReducer from './src/store/reducers/reducers';
+import productsReducer from './src/store/reducers/products';
 import { Provider } from 'react-redux';
+
+import ProductOverview from './src/screens/shop/ProductOverview';
 
 
 const rootReducer = combineReducers({
   products: productsReducer
 });
+// export type RootState = ReturnType<typeof rootReducer>
 
 const store =  createStore(rootReducer);
 
@@ -17,13 +20,11 @@ export default function App() {
     <Provider
       store={store}
     >
-
-    <View style={styles.container}>
       <StatusBar style="auto" />
-     
-
-        
-    </View>
+      <ProductOverview
+          
+      />
+    
     </Provider>
   );
 }
