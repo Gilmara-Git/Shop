@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import  themes  from '../../global/styles/themes';
 
 export const styles = StyleSheet.create({
     product: {
@@ -8,7 +9,7 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.26,
         elevation: 5,
         borderRadius: 8, 
-        backgroundColor: 'white',
+        backgroundColor: themes.lightGray,
         margin: 20,
         height: 300 // can also be calculated with Dimensions API
     },
