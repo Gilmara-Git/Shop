@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.26,
         elevation: 5,
         borderRadius: 8, 
-        backgroundColor: themes.lightGray,
+        backgroundColor: themes.colors.lightGray,
         margin: 20,
         height: 300 // can also be calculated with Dimensions API
     },

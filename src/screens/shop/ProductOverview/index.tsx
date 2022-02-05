@@ -15,6 +15,9 @@ const ProductOverview = ( ) => {
                         imageUrl={item.imageUrl}
                         title={item.title}
                         price={item.price} 
+                        viewDetails={()=>{}}
+                        toCart={()=>{}}
+                        onPress={()=>{}}
                          
                />
             )}

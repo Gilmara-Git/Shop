@@ -1,6 +1,9 @@
 const themes = {
-    primary: '#DE5DEA',
-    lightGray: '#EAF1FF'
+    colors:{
+        primary: '#DE5DEA',
+        lightGray: '#EAF1FF',
+        white: '#FFFFFF'
+    }
 
 }
 

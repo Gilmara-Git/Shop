@@ -1,10 +1,10 @@
-import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { createStore, combineReducers } from 'redux';
 import productsReducer from './src/store/reducers/products';
 import { Provider } from 'react-redux';
 
+import ShopNavigator from './src/navigation/ShopNavigator';
 import ProductOverview from './src/screens/shop/ProductOverview';
 
 
@@ -21,9 +21,7 @@ export default function App() {
       store={store}
     >
       <StatusBar style="auto" />
-      <ProductOverview
-          
-      />
+      <ShopNavigator />
     
     </Provider>
   );

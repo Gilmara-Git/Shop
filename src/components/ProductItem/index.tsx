@@ -1,17 +1,29 @@
 import React from 'react';
-import { View, Text, Image, Button, ButtonProps } from 'react-native';
+import { 
+    View, 
+    Text, 
+    Image, 
+    Button, 
+    ButtonProps, 
+    TouchableOpacity, 
+    TouchableOpacityProps,
+    TouchableNativeFeedback,
+    TouchableNativeFeedbackProps
+} from 'react-native';
 import { styles } from './styles';
 
 
 
-interface IProductOverview {
+interface IProductOverview extends ButtonProps {
     title: string;
     imageUrl: string;  
     price: string; 
+    viewDetails: ()=>void;
+    toCart:()=>void;
 }
 
 
-const ProductItem = ({title, imageUrl, price}: IProductOverview)=>{
+const ProductItem = ({title, imageUrl, price, viewDetails, toCart, ...rest }: IProductOverview)=>{
     return (
     
         <View style={styles.product}>
@@ -26,12 +38,14 @@ const ProductItem = ({title, imageUrl, price}: IProductOverview)=>{
                     </View>
                 <View style={styles.actions}>
                     <Button 
-                        onPress={()=>{}}                      
+                        {...rest}
+                        onPress={viewDetails}                      
                         title='View Details'
+                        
                         />
 
                     <Button 
-                        onPress={()=>{}}
+                        onPress={toCart}
                         title='To Cart' 
                         />
 
