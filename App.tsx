@@ -1,12 +1,9 @@
-import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,View } from 'react-native';
 import { createStore, combineReducers } from 'redux';
 import productsReducer from './src/store/reducers/products';
 import { Provider } from 'react-redux';
 
-import ProductOverview from './src/screens/shop/ProductOverview';
-
+import ShopNavigator from './src/navigation/ShopNavigator';
 
 const rootReducer = combineReducers({
   products: productsReducer
@@ -21,23 +18,8 @@ export default function App() {
       store={store}
     >
       <StatusBar style="auto" />
-      <ProductOverview
-          
-      />
+      <ShopNavigator />
     
     </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  image:{
-    width: '100%',
-    height: '90%'
-  }
-});

@@ -1,5 +1,11 @@
-import React from 'react';
-import { View, Text, Image, Button, ButtonProps } from 'react-native';
+import React , {ReactNode} from 'react';
+import { 
+    View, 
+    Text, 
+    Image, 
+    Button
+
+} from 'react-native';
 import { styles } from './styles';
 
 
@@ -8,10 +14,12 @@ interface IProductOverview {
     title: string;
     imageUrl: string;  
     price: string; 
-}
+    children: ReactNode;
+  }
 
 
-const ProductItem = ({title, imageUrl, price}: IProductOverview)=>{
+const ProductItem = ({title, imageUrl, price, children }: IProductOverview)=>{
+   
     return (
     
         <View style={styles.product}>
@@ -25,18 +33,8 @@ const ProductItem = ({title, imageUrl, price}: IProductOverview)=>{
                         <Text style={styles.price}>${price}</Text>
                     </View>
                 <View style={styles.actions}>
-                    <Button 
-                        onPress={()=>{}}                      
-                        title='View Details'
-                        />
-
-                    <Button 
-                        onPress={()=>{}}
-                        title='To Cart' 
-                        />
-
-                </View>
-               
+                    {children}             
+                </View>   
         </View>
         )
 }

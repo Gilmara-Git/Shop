@@ -7,7 +7,7 @@ interface ICart {
 }
 
 const Cart = (props :ICart) => {
-    return <Text>{props.title}</Text>
+    return <Text>CART</Text>
 }
 
 export default Cart;

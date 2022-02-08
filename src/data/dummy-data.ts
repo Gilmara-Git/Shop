@@ -4,9 +4,9 @@ const PRODUCTS = [
   new Product(
     'p1',
     'u1',
-    'Red Shirt',
-    'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
-    'A red t-shirt, perfect for days with non-red weather.',
+    'Guitar',
+    'https://images.unsplash.com/photo-1605020420620-20c943cc4669?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+    '6 steel cords.',
     29.99
   ),
   new Product(
@@ -48,7 +48,24 @@ const PRODUCTS = [
     'https://cdn.pixabay.com/photo/2015/10/03/02/14/pen-969298_1280.jpg',
     "Can be used for role-playing (not the kind of role-playing you're thinking about...).",
     5.49
+  ),
+  new Product(
+    'p7',
+    'u1',
+    'Chair',
+    'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    'Soft and charming',
+    25.99
+  ),
+  new Product(
+    'p8',
+    'u1',
+    'Nail Polish',
+    'https://images.unsplash.com/photo-1636019411401-82485711b6ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1089&q=80',
+    'Old Style',
+    195.91
   )
+
 ];
 
 export default PRODUCTS;
