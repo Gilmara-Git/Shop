@@ -1,29 +1,25 @@
-import React from 'react';
+import React , {ReactNode} from 'react';
 import { 
     View, 
     Text, 
     Image, 
-    Button, 
-    ButtonProps, 
-    TouchableOpacity, 
-    TouchableOpacityProps,
-    TouchableNativeFeedback,
-    TouchableNativeFeedbackProps
+    Button
+
 } from 'react-native';
 import { styles } from './styles';
 
 
 
-interface IProductOverview extends ButtonProps {
+interface IProductOverview {
     title: string;
     imageUrl: string;  
     price: string; 
-    viewDetails: ()=>void;
-    toCart:()=>void;
-}
+    children: ReactNode;
+  }
 
 
-const ProductItem = ({title, imageUrl, price, viewDetails, toCart, ...rest }: IProductOverview)=>{
+const ProductItem = ({title, imageUrl, price, children }: IProductOverview)=>{
+   
     return (
     
         <View style={styles.product}>
@@ -37,20 +33,8 @@ const ProductItem = ({title, imageUrl, price, viewDetails, toCart, ...rest }: IP
                         <Text style={styles.price}>${price}</Text>
                     </View>
                 <View style={styles.actions}>
-                    <Button 
-                        {...rest}
-                        onPress={viewDetails}                      
-                        title='View Details'
-                        
-                        />
-
-                    <Button 
-                        onPress={toCart}
-                        title='To Cart' 
-                        />
-
-                </View>
-               
+                    {children}             
+                </View>   
         </View>
         )
 }

@@ -3,13 +3,13 @@ import  themes  from '../../global/styles/themes';
 
 export const styles = StyleSheet.create({
     product: {
-        shadowColor: 'black',
+        shadowColor: themes.colors.black,
         shadowOffset: {width:0, height: 2},
-        shadowRadius: 8,
+        shadowRadius: 10,
         shadowOpacity: 0.26,
         elevation: 5,
-        borderRadius: 8, 
-        backgroundColor: themes.colors.lightGray,
+        borderRadius: 10, 
+        backgroundColor: themes.colors.lavender,
         margin: 20,
         height: 300 // can also be calculated with Dimensions API
     },
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
         borderTopRightRadius: 10,         
         overflow: 'hidden'
         },
-        image: {
+    image: {
         width: '100%',
         height: '100%',
       
@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
     },
     price:{
         fontSize: 14,
-        color: '#888'
+        color: themes.colors.grayish
     },
     actions:{
         flexDirection: 'row',

@@ -7,7 +7,7 @@ interface IProductDetail {
 }
 
 const ProductDetail = (props :IProductDetail) => {
-    return <Text>{props.title}</Text>
+    return <Text>PRODUCT DETAIL</Text>
 }
 
 export default ProductDetail;
