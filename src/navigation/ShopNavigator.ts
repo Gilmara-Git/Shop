@@ -4,8 +4,7 @@ import { Platform } from 'react-native';
 import themes from '../global/styles/themes';
 import ProductOverview  from '../screens/shop/ProductOverview';
 import Cart from '../screens/shop/Cart';
-import ProductDetail from '../screens/shop/ProductDetail'
-
+import ProductDetail from '../screens/shop/ProductDetail';
 
 const ProductsNavigator =  createStackNavigator({
     Products: {
@@ -14,7 +13,7 @@ const ProductsNavigator =  createStackNavigator({
     Cart: {
         screen: Cart
     },
-    Detail: {
+    Details: {
         screen: ProductDetail
     }
 
@@ -23,7 +22,7 @@ const ProductsNavigator =  createStackNavigator({
 {
     defaultNavigationOptions:{
         headerStyle: {
-            backgroundColor: Platform.OS === 'ios' ? themes.colors.white:themes.colors.purple
+            backgroundColor: Platform.OS === 'ios' ? themes.colors.white:themes.colors.primary
         },
         headerTintColor: Platform.OS === 'ios' ? themes.colors.primary :themes.colors.white
     },
