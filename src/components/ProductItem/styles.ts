@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.26,
         elevation: 5,
         borderRadius: 10, 
-        backgroundColor: themes.colors.lavender,
+        backgroundColor: '#E1DAD5',
         margin: 20,
         height: 300 // can also be calculated with Dimensions API
     },
@@ -27,16 +27,17 @@ export const styles = StyleSheet.create({
     },
     details:{
         alignItems: 'center',
-        height: '20%',
-        padding: 10
+        height: '18%',
+        padding: 9
     },
     title:{
         fontSize: 18,
-        marginVertical: 4
+        marginVertical: 4,
+        color: '#1E1525'
     },
     price:{
         fontSize: 14,
-        color: themes.colors.grayish
+        color: '#523B4D'
     },
     actions:{
         flexDirection: 'row',

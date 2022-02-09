@@ -1,6 +1,6 @@
 const themes = {
     colors:{
-        primary: '#DE5DEA',
+        primary: '#523B4D',
         purple: '#a435f0',
         lightGray: '#EAF1FF',
         white: '#FFFFFF',
@@ -10,7 +10,6 @@ const themes = {
         grayish: '#888'
 
     }
-
 }
 
 export default themes;
