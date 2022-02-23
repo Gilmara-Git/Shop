@@ -1,4 +1,4 @@
-import { TouchableOpacity, TouchableOpacityProps,View, Text ,TouchableNativeFeedback, TouchableNativeFeedbackProps} from 'react-native';
+import { View, Text ,TouchableNativeFeedback, TouchableNativeFeedbackProps} from 'react-native';
 import { styles }  from './styles'
 
 interface ITouchableNative extends TouchableNativeFeedbackProps {
@@ -6,11 +6,10 @@ interface ITouchableNative extends TouchableNativeFeedbackProps {
    
 }
 
-const CustomButton =({title, ...rest}:ITouchableNative)=>{
+const AndroidButton =({title, ...rest}:ITouchableNative)=>{
     return (
         <View style={styles.container}>
-             <TouchableNativeFeedback               
-            // activeOpacity={0.6}           
+             <TouchableNativeFeedback                         
             {...rest}
             >
        
@@ -24,4 +23,4 @@ const CustomButton =({title, ...rest}:ITouchableNative)=>{
            )
 }
 
-export default CustomButton;
+export default AndroidButton;
