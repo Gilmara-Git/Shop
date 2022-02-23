@@ -28,16 +28,18 @@ export const styles = StyleSheet.create({
     details:{
         alignItems: 'center',
         height: '18%',
-        padding: 9
+        padding: 9   
     },
     title:{
         fontSize: 18,
         marginVertical: 4,
-        color: '#1E1525'
+        color: '#1E1525',
+        fontFamily: themes.fonts.MSATitle700Bold,
     },
     price:{
-        fontSize: 14,
-        color: '#523B4D'
+        fontSize: 13,
+        color: '#523B4D',
+        fontFamily: themes.fonts.MSA600SemiBoldItalic,
     },
     actions:{
         flexDirection: 'row',
@@ -45,7 +47,6 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         height: '20%',
         paddingHorizontal: 20
-      
     }  
 });
 
