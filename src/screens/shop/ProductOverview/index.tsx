@@ -1,17 +1,13 @@
-import { FlatList, Button, Platform } from 'react-native';
+import { FlatList,Platform } from 'react-native';
 import { RootStateOrAny, useSelector } from 'react-redux';
 import ProductItem from '../../../components/ProductItem';
 import AndroidButton from '../../../components/AndroidButton'; 
 import IosButton from '../../../components/IosButton'
 import { NavigationStackProp } from 'react-navigation-stack';
-import themes from '../../../global/styles/themes';
-
-
 
 interface INavigationProps {
     navigation: NavigationStackProp
 }
-
 
 const ProductOverview = ({navigation}: INavigationProps) => {
     console.log(navigation)
@@ -30,11 +26,11 @@ const ProductOverview = ({navigation}: INavigationProps) => {
                     {Platform.OS === 'ios'? 
                     <IosButton                      
                         title='Details'
-                        onPress={()=>navigation.navigate({routeName: 'Details'})}/>:
+                        onPress={()=>navigation.navigate({routeName: 'Details', params:{ prodId: item.id }})}/>:
                         
                     <AndroidButton
                         title='Details'
-                        onPress={()=>navigation.navigate({routeName: 'Details'})}
+                        onPress={()=>navigation.navigate({routeName: 'Details', params: {prodId: item.id}})}
                          />}
                    
                    {Platform.OS === 'ios'? 
