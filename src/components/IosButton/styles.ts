@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
     },
-     text: {
+     title: {
         color: themes.colors.primary,
         textAlign: 'center',
         flex: 1,

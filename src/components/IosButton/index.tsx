@@ -14,7 +14,7 @@ const IosButton =({title, ...rest}:ITouchableOpacity)=>{
             {...rest}
             >
        
-            <Text style={styles.text}>{title}</Text>
+            <Text style={styles.title}>{title}</Text>
            
             </TouchableOpacity>  
 
