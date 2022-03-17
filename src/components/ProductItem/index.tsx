@@ -1,14 +1,10 @@
-import React , {ReactNode} from 'react';
+import {ReactNode} from 'react';
 import { 
     View, 
     Text, 
-    Image, 
-    Button
-
+    Image
 } from 'react-native';
 import { styles } from './styles';
-
-
 
 interface IProductOverview {
     title: string;
@@ -21,7 +17,6 @@ interface IProductOverview {
 const ProductItem = ({title, imageUrl, price, children }: IProductOverview)=>{
    
     return (
-    
         <View style={styles.product}>
                     <View style={styles.imageContainer}>
                         <Image source={{uri: imageUrl}}
@@ -38,6 +33,5 @@ const ProductItem = ({title, imageUrl, price, children }: IProductOverview)=>{
         </View>
         )
 }
-
 
 export default ProductItem;

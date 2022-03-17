@@ -24,9 +24,12 @@ const ProductsNavigator =  createStackNavigator({
         headerStyle: {
             backgroundColor: Platform.OS === 'ios' ? themes.colors.white:themes.colors.primary
         },
-        headerTintColor: Platform.OS === 'ios' ? themes.colors.primary :themes.colors.white
-    },
-    
+        headerTintColor: Platform.OS === 'ios' ? themes.colors.primary :themes.colors.white,
+        headerTitleStyle:{
+            fontFamily: themes.fonts.MSATitle700Bold
+        }
+    }
+   
 })
 
 export default createAppContainer(ProductsNavigator);

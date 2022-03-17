@@ -13,7 +13,7 @@ const AndroidButton =({title, ...rest}:ITouchableNative)=>{
             {...rest}
             >
        
-            <Text style={styles.text}>{title}</Text>
+            <Text style={styles.title}>{title}</Text>
            
             </TouchableNativeFeedback>  
 

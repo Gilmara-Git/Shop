@@ -9,6 +9,11 @@ const themes = {
         black: '#000000',
         grayish: '#888'
 
+    }, 
+    fonts: {
+        MSATitle700Bold: 'MontserratAlternates_700Bold',
+        MSA300Light: 'MontserratAlternates_300Light',
+        MSA600SemiBoldItalic: 'MontserratAlternates_600SemiBold_Italic'
     }
 }
 

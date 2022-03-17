@@ -1,7 +1,8 @@
 import { FlatList, Button, Platform } from 'react-native';
 import { RootStateOrAny, useSelector } from 'react-redux';
 import ProductItem from '../../../components/ProductItem';
-import CustomButton from '../../../components/CustomButton';
+import AndroidButton from '../../../components/AndroidButton'; 
+import IosButton from '../../../components/IosButton'
 import { NavigationStackProp } from 'react-navigation-stack';
 import themes from '../../../global/styles/themes';
 
@@ -27,23 +28,21 @@ const ProductOverview = ({navigation}: INavigationProps) => {
                >
                     
                     {Platform.OS === 'ios'? 
-                    <Button
-                        color={themes.colors.primary} 
+                    <IosButton                      
                         title='Details'
                         onPress={()=>navigation.navigate({routeName: 'Details'})}/>:
                         
-                    <CustomButton
+                    <AndroidButton
                         title='Details'
                         onPress={()=>navigation.navigate({routeName: 'Details'})}
                          />}
                    
                    {Platform.OS === 'ios'? 
-                    <Button
-                        color={themes.colors.primary} 
+                    <IosButton                      
                         title='Cart'
                         onPress={()=>navigation.navigate({routeName: 'Cart'})}/>:
                         
-                    <CustomButton
+                    <AndroidButton
                         title='Cart'
                         onPress={()=>navigation.navigate({routeName: 'Cart'})}
                          />}
@@ -58,5 +57,7 @@ const ProductOverview = ({navigation}: INavigationProps) => {
 ProductOverview.navigationOptions = {
     headerTitle: 'All products'
 }
+
+
 
 export default ProductOverview;
