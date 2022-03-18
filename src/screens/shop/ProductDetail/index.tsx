@@ -1,4 +1,7 @@
-import { Text,View,Image} from 'react-native';
+import { Text,View,Image, Platform } from 'react-native';
+import AndroidButton from '../../../components/AndroidButton';
+import IosButton from '../../../components/IosButton';
+
 import { useSelector, RootStateOrAny} from 'react-redux';
 import { NavigationStackProp } from 'react-navigation-stack'
 import { styles } from './styles';
@@ -15,7 +18,7 @@ const ProductDetail = ({ navigation}:INavigationProps) =>{
    
 
     return(
-            <View>
+            <View style={styles.mainContainer}>
                 <Image source={{uri: productSelected.imageUrl}}
                 resizeMode='cover'
                 style={styles.imageContainer}/>
@@ -25,7 +28,20 @@ const ProductDetail = ({ navigation}:INavigationProps) =>{
                         numberOfLines={3}
                         style={styles.description}>{productSelected.description}
                     </Text>
-                    <Text style={styles.price}>{productSelected.price}</Text>
+                    <Text style={styles.price}>${productSelected.price}</Text>
+                <View style={styles.button}>
+                {Platform.OS === 'android' ?
+                <AndroidButton               
+                    title='Add to Cart'
+                    onPress={()=>navigation.navigate({routeName: 'Cart'})}
+              />:
+              <IosButton 
+                    title='Add to Cart'
+                    onPress={()=>navigation.navigate({routeName: 'Cart'})}/>
+              }
+                
+                
+                </View>
                 </View>
             </View>
             

@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.26,
         elevation: 5,
         borderRadius: 10, 
-        backgroundColor: '#E1DAD5',
+        backgroundColor: themes.colors.beige,
         margin: 20,
         height: 300 // can also be calculated with Dimensions API
     },
@@ -33,12 +33,12 @@ export const styles = StyleSheet.create({
     title:{
         fontSize: 18,
         marginVertical: 4,
-        color: '#1E1525',
+        color: themes.colors.navy,
         fontFamily: themes.fonts.MSATitle700Bold,
     },
     price:{
         fontSize: 13,
-        color: '#523B4D',
+        color: themes.colors.primary,
         fontFamily: themes.fonts.MSA600SemiBoldItalic,
     },
     actions:{
