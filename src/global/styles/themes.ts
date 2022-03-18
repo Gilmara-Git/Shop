@@ -7,7 +7,9 @@ const themes = {
         buttons:'#5624d0',
         lavender: '#F2EFFE',
         black: '#000000',
-        grayish: '#888'
+        grayish: '#888',
+        navy: '#1E1525',
+        beige: '#E1DAD5'
 
     }, 
     fonts: {
