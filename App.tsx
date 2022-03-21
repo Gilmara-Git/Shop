@@ -12,6 +12,7 @@ import {
   MontserratAlternates_600SemiBold_Italic
 } from '@expo-google-fonts/montserrat-alternates';
 
+
 const rootReducer = combineReducers({
   products: productsReducer
 });
