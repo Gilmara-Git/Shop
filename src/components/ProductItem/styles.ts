@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
         fontFamily: themes.fonts.MSATitle700Bold,
     },
     price:{
-        fontSize: 13,
+        fontSize: 14,
         color: themes.colors.primary,
         fontFamily: themes.fonts.MSA600SemiBoldItalic,
     },
