@@ -14,10 +14,9 @@ const ProductsNavigator =  createStackNavigator({
         screen: Cart
     },
     Details: {
-        screen: ProductDetail
+        screen: ProductDetail,
+        
     }
-
-
 },
 {
     defaultNavigationOptions:{
@@ -26,6 +25,9 @@ const ProductsNavigator =  createStackNavigator({
         },
         headerTintColor: Platform.OS === 'ios' ? themes.colors.primary :themes.colors.white,
         headerTitleStyle:{
+            fontFamily: themes.fonts.MSATitle700Bold
+        },
+        headerBackTitleStyle:{
             fontFamily: themes.fonts.MSATitle700Bold
         }
     }
