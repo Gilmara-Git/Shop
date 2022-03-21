@@ -34,7 +34,7 @@ description:{
 price:{
     fontFamily: themes.fonts.MSA600SemiBoldItalic,
     color: themes.colors.navy,
-    fontSize: 13,
+    fontSize: 14,
     textAlign: 'center',
     marginTop: 5
 

@@ -2,7 +2,8 @@ import {ReactNode} from 'react';
 import { 
     View, 
     Text, 
-    Image
+    Image, 
+ 
 } from 'react-native';
 import { styles } from './styles';
 
@@ -11,12 +12,14 @@ interface IProductOverview {
     imageUrl: string;  
     price: string; 
     children: ReactNode;
+
   }
 
 
-const ProductItem = ({title, imageUrl, price, children }: IProductOverview)=>{
+const ProductItem = ({title, imageUrl, price, children, }: IProductOverview)=>{
    
     return (
+       
         <View style={styles.product}>
                     <View style={styles.imageContainer}>
                         <Image source={{uri: imageUrl}}
@@ -31,6 +34,7 @@ const ProductItem = ({title, imageUrl, price, children }: IProductOverview)=>{
                     {children}             
                 </View>   
         </View>
+       
         )
 }
 

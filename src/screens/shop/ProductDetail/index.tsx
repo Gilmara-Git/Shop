@@ -11,12 +11,11 @@ interface INavigationProps {
 }
 
 const ProductDetail = ({ navigation}:INavigationProps) =>{   
-    console.log(navigation, 'navigation on Products Details')
+    
     const prodId = navigation.getParam('prodId');
     const productSelected = useSelector((state: RootStateOrAny) => state.products.availableProducts.find(
-            prod=>prod.id === prodId))
-   
-
+        (            prod: { id: any; })=>prod.id === prodId))
+        
     return(
             <View style={styles.mainContainer}>
                 <Image source={{uri: productSelected.imageUrl}}
@@ -28,7 +27,7 @@ const ProductDetail = ({ navigation}:INavigationProps) =>{
                         numberOfLines={3}
                         style={styles.description}>{productSelected.description}
                     </Text>
-                    <Text style={styles.price}>${productSelected.price}</Text>
+                    <Text style={styles.price}>${productSelected.price.toFixed(2)}</Text>
                 <View style={styles.button}>
                 {Platform.OS === 'android' ?
                 <AndroidButton               
@@ -40,14 +39,18 @@ const ProductDetail = ({ navigation}:INavigationProps) =>{
                     onPress={()=>navigation.navigate({routeName: 'Cart'})}/>
               }
                 
-                
                 </View>
                 </View>
             </View>
             
-            
-            )
+            )       
+}
 
+
+ProductDetail.navigationOptions = (navData: { navigation: { getParam: (arg0: string) => any; }; })=>{
+    return { 
+        headerTitle: navData.navigation.getParam('title')    
+    }
 }
 
 export default ProductDetail;
