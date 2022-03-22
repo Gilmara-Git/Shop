@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { createStore, combineReducers } from 'redux';
 import productsReducer from './src/store/reducers/products';
+import cartReducer from './src/store/reducers/cart';
 import { Provider } from 'react-redux';
 import ShopNavigator from './src/navigation/ShopNavigator';
 
@@ -14,7 +15,8 @@ import {
 
 
 const rootReducer = combineReducers({
-  products: productsReducer
+  products: productsReducer,
+  cart: cartReducer
 });
 // export type RootState = ReturnType<typeof rootReducer>
 
