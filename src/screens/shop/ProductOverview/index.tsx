@@ -1,20 +1,23 @@
 import { FlatList, Platform, TouchableOpacity, TouchableNativeFeedback } from "react-native";
-import { RootStateOrAny, useSelector } from "react-redux";
+import { RootStateOrAny, useSelector, useDispatch } from "react-redux";
 import ProductItem from "../../../components/ProductItem";
 import AndroidButton from "../../../components/AndroidButton";
 import IosButton from "../../../components/IosButton";
 import { NavigationStackProp } from "react-navigation-stack";
-
+import * as cartActions from '../../../store/actions/cart';
 
 interface INavigationProps {
   navigation: NavigationStackProp;
 }
 
 const ProductOverview = ({ navigation }: INavigationProps) => {
+
   
   const products = useSelector(
     (state: RootStateOrAny) => state.products.availableProducts
-  );
+    );
+  const dispatch = useDispatch();
+
   return (
     <FlatList
       data={products}
@@ -62,12 +65,12 @@ const ProductOverview = ({ navigation }: INavigationProps) => {
             {Platform.OS === "ios" ? (
               <IosButton
                 title="Cart"
-                onPress={() => navigation.navigate({ routeName: "Cart" })}
+                onPress={() => dispatch(cartActions.addToCart(itemData.item))}
               />
             ) : (
               <AndroidButton
                 title="Cart"
-                onPress={() => navigation.navigate({ routeName: "Cart" })}
+                onPress={() => dispatch(cartActions.addToCart(itemData.item))}
               />
             )}
           </ProductItem>

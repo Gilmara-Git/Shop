@@ -2,9 +2,10 @@ import { Text,View,Image, Platform } from 'react-native';
 import AndroidButton from '../../../components/AndroidButton';
 import IosButton from '../../../components/IosButton';
 
-import { useSelector, RootStateOrAny} from 'react-redux';
+import { useSelector, RootStateOrAny, useDispatch} from 'react-redux';
 import { NavigationStackProp } from 'react-navigation-stack'
 import { styles } from './styles';
+import * as cartActions from '../../../store/actions/cart';
 
 interface INavigationProps {
     navigation: NavigationStackProp; 
@@ -14,9 +15,12 @@ const ProductDetail = ({ navigation}:INavigationProps) =>{
     
     const prodId = navigation.getParam('prodId');
     const productSelected = useSelector((state: RootStateOrAny) => state.products.availableProducts.find(
-        (            prod: { id: any; })=>prod.id === prodId))
+        (prod: { id: any; })=>prod.id === prodId));
+    
+    const dispatch = useDispatch();
         
     return(
+      
             <View style={styles.mainContainer}>
                 <Image source={{uri: productSelected.imageUrl}}
                 resizeMode='cover'
@@ -32,16 +36,17 @@ const ProductDetail = ({ navigation}:INavigationProps) =>{
                 {Platform.OS === 'android' ?
                 <AndroidButton               
                     title='Add to Cart'
-                    onPress={()=>navigation.navigate({routeName: 'Cart'})}
+                    onPress={()=>dispatch(cartActions.addToCart(productSelected))}
               />:
               <IosButton 
                     title='Add to Cart'
-                    onPress={()=>navigation.navigate({routeName: 'Cart'})}/>
+                    onPress={()=>dispatch(cartActions.addToCart(productSelected))}/>
               }
                 
                 </View>
                 </View>
             </View>
+         
             
             )       
 }
