@@ -18,6 +18,7 @@ const ProductOverview = ({ navigation }: INavigationProps) => {
   const products = useSelector(
     (state: RootStateOrAny) => state.products.availableProducts
     );
+    
   const dispatch = useDispatch();
 
   return (
@@ -82,8 +83,8 @@ const ProductOverview = ({ navigation }: INavigationProps) => {
   );
 };
 
-ProductOverview.navigationOptions =(navData)=> {
-  console.log(navData, 'navDATA')
+ProductOverview.navigationOptions =(navData: any)=> {
+  
   return { 
     headerTitle: "All products",
     headerRight: ()=><HeaderButtons HeaderButtonComponent={HeaderButton}>
