@@ -8,7 +8,8 @@ import ProductDetail from '../screens/shop/ProductDetail';
 
 const ProductsNavigator =  createStackNavigator({
     Products: {
-        screen: ProductOverview
+        screen: ProductOverview,
+        
     }, 
     Cart: {
         screen: Cart
