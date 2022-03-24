@@ -20,8 +20,10 @@ const cartReducer = (state= initialState, action: any)=>{
            
             const addedProduct = action.product;           
             const productPrice = addedProduct.price;
-            const productTitle = addedProduct.title
-            console.log(addedProduct, productPrice, productTitle, 'cart itemsssss')
+            const productTitle = addedProduct.title; 
+            const productURL = addedProduct.imageUrl;
+            console.log('--------------------------------------')
+            console.log(addedProduct, 'cart itemsssss')
 
         let updatedOrNewCartItem: CartItem;
 
@@ -30,11 +32,12 @@ const cartReducer = (state= initialState, action: any)=>{
             updatedOrNewCartItem = new CartItem(
                 state.items[addedProduct.id].quantity + 1,
                 productPrice,
-                productTitle,
-                state.items[addedProduct.id].sum + productPrice
+                productTitle,               
+                state.items[addedProduct.id].sum + productPrice,
+                productURL,
                 );     
         }else {
-             updatedOrNewCartItem = new CartItem(1,productPrice, productTitle, productPrice);
+             updatedOrNewCartItem = new CartItem(1,productPrice, productTitle, productPrice, productURL);
             // adding a new item to Cart dinamically
         }
         return { 
