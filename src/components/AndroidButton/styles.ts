@@ -5,7 +5,7 @@ import themes from '../../global/styles/themes';
 
 export const styles = StyleSheet.create({
     container:{
-        width: '26%',
+        width: '36%',
         height: '60%',
         backgroundColor: themes.colors.primary,
         borderRadius: 4,
