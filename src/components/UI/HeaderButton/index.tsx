@@ -5,7 +5,7 @@ import {
   HeaderButtonProps,
 } from "react-navigation-header-buttons";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import themes from "../../global/styles/themes";
+import themes from '../../../global/styles/themes';
 
 const CustomHeaderButton = (
   props: JSX.IntrinsicAttributes & JSX.IntrinsicClassAttributes<HeaderButton> & Readonly<HeaderButtonProps> & Readonly<{ children?: React.ReactNode; }>
