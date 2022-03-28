@@ -5,10 +5,8 @@ import themes from '../../global/styles/themes';
 
 export const styles = StyleSheet.create({
     container:{
-        width: '36%',
-        height: '60%',
-        // backgroundColor: themes.colors.primary,
-        // borderRadius: 4,
+        width: '20%',
+        height: '60%',     
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center'
