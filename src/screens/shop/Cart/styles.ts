@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     totalContainer:{
         flexDirection: 'row',
         height: 62,
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         padding: 15,
         marginHorizontal:'10%',
         marginTop: '5%',
@@ -39,6 +39,6 @@ export const styles = StyleSheet.create({
         fontFamily: themes.fonts.MSA600SemiBoldItalic,
         color: themes.colors.orange
         
-    
     }
+    
 });

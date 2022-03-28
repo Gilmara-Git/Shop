@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     },
     columnContainer: {
         marginLeft: '3%',
-       justifyContent: 'space-between',
+       justifyContent: 'space-around',
         height: '80%' ,
         width: '100%'
     },
@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         alignItems: 'center',
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
+     
 
     },
     quantity:{

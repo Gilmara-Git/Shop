@@ -30,7 +30,7 @@ const CartCards = ({
               activeOpacity={0.5}
               onPress={() => console.log("Minus")}
             >
-              <AntDesign name="minus" size={19} color={themes.colors.orange} />
+              <AntDesign name="minus" size={19} color={themes.colors.orange}/>
             </TouchableOpacity>
             <Text style={styles.quantity}>{prodQuantity}</Text>
             <TouchableOpacity
