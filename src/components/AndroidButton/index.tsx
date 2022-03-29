@@ -3,11 +3,10 @@ import { styles }  from './styles'
 
 interface ITouchableNative extends TouchableNativeFeedbackProps {
     title: string;
-    disabled: boolean;
-
+ 
 }
 
-const AndroidButton =({disabled, title, ...rest}:ITouchableNative)=>{
+const AndroidButton =({ title, ...rest}:ITouchableNative)=>{
     return (
         <View style={styles.container}>
              <TouchableNativeFeedback                         
