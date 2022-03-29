@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
         marginTop: '5%',
-        marginHorizontal: '10%',
+        marginHorizontal: '8%',
         paddingLeft: '2%',
         borderRadius: 8,
         height: 100,
@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
         
     },
     columnContainer: {
-        marginLeft: '3%',
-       justifyContent: 'space-around',
+        marginLeft: '1%',
+        justifyContent: 'space-around',
         height: '80%' ,
         width: '100%'
     },
@@ -45,25 +45,28 @@ const styles = StyleSheet.create({
         width: '74%'   
     },
     price:{
-        fontSize: 14,
+        fontSize: 16,
         color: themes.colors.primary,
         fontFamily: themes.fonts.MSA600SemiBoldItalic,
     },
     quantityContainer:{
         backgroundColor: themes.colors.lavender,
         paddingHorizontal:6,
-        borderRadius: 5,
+        borderRadius: 50,
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between',
-     
 
     },
+    AntDesign:{
+        margin: 4
+    },
     quantity:{
-        fontSize: 21,
+        fontSize: 18,
         fontFamily: themes.fonts.MSATitle700Bold,
         color: themes.colors.primary,
-        margin: 10
+        margin: 2,
+        padding: 2
     },
    
 });
