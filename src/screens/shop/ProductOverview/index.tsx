@@ -1,24 +1,23 @@
-import { FlatList, Platform, TouchableOpacity, TouchableNativeFeedback } from "react-native";
+import { FlatList, Platform, TouchableOpacity } from "react-native";
 import { RootStateOrAny, useSelector, useDispatch } from "react-redux";
 import ProductItem from "../../../components/ProductItem";
 import AndroidButton from "../../../components/AndroidButton";
 import IosButton from "../../../components/IosButton";
 import { NavigationStackProp } from "react-navigation-stack";
-import * as cartActions from '../../../store/actions/cart';
-import HeaderButton from '../../../components/UI';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import * as cartActions from "../../../store/actions/cart";
+import HeaderButton from "../../../components/UI/HeaderButton";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
 interface INavigationProps {
   navigation: NavigationStackProp;
 }
 
 const ProductOverview = ({ navigation }: INavigationProps) => {
-
-  
   const products = useSelector(
     (state: RootStateOrAny) => state.products.availableProducts
-    );
-    
+  );
+  console.log(products, " products on overview");
+
   const dispatch = useDispatch();
 
   return (
@@ -27,17 +26,21 @@ const ProductOverview = ({ navigation }: INavigationProps) => {
       keyExtractor={(item) => item.id}
       renderItem={(itemData) => (
         <TouchableOpacity
-          onPress={()=>navigation.navigate({routeName: "Details", params:{
-          prodId: itemData.item.id,
-          title: itemData.item.title
-
-        }})}>
+          onPress={() =>
+            navigation.navigate({
+              routeName: "Details",
+              params: {
+                prodId: itemData.item.id,
+                title: itemData.item.title,
+              },
+            })
+          }
+        >
           <ProductItem
             imageUrl={itemData.item.imageUrl}
             title={itemData.item.title}
             price={itemData.item.price.toFixed(2)}
           >
-            
             {Platform.OS === "ios" ? (
               <IosButton
                 title="Details"
@@ -57,9 +60,10 @@ const ProductOverview = ({ navigation }: INavigationProps) => {
                 onPress={() =>
                   navigation.navigate({
                     routeName: "Details",
-                    params: { prodId: itemData.item.id,
-                    title: itemData.item.title,  
-                  },
+                    params: {
+                      prodId: itemData.item.id,
+                      title: itemData.item.title,
+                    },
                   })
                 }
               />
@@ -67,12 +71,12 @@ const ProductOverview = ({ navigation }: INavigationProps) => {
 
             {Platform.OS === "ios" ? (
               <IosButton
-                title="Cart"
+                title="Add to Cart"
                 onPress={() => dispatch(cartActions.addToCart(itemData.item))}
               />
             ) : (
               <AndroidButton
-                title="Cart"
+                title="Add to Cart"
                 onPress={() => dispatch(cartActions.addToCart(itemData.item))}
               />
             )}
@@ -83,20 +87,21 @@ const ProductOverview = ({ navigation }: INavigationProps) => {
   );
 };
 
-ProductOverview.navigationOptions =(navData: any)=> {
-  
-  return { 
+ProductOverview.navigationOptions = (navData: any) => {
+  return {
     headerTitle: "All products",
-    headerRight: ()=><HeaderButtons HeaderButtonComponent={HeaderButton}>
-    <Item 
-      title='Cart'
-      iconName={Platform.OS === 'android'? 'md-cart': 'ios-cart'}
-      onPress={()=>{navData.navigation.navigate({routeName: 'Cart'})}}
-      />
-
-  </HeaderButtons>
-  }
-
+    headerRight: () => (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Cart"
+          iconName={Platform.OS === "android" ? "md-cart" : "ios-cart"}
+          onPress={() => {
+            navData.navigation.navigate({ routeName: "Cart" });
+          }}
+        />
+      </HeaderButtons>
+    ),
+  };
 };
 
 export default ProductOverview;

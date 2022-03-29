@@ -40,6 +40,7 @@ price:{
 
 },
 button:{ 
-    marginTop:10,   
+    marginTop:10,
+    alignItems: 'center'   
 },   
 });
