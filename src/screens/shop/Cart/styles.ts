@@ -7,8 +7,8 @@ export const styles = StyleSheet.create({
         height: 62,
         justifyContent: 'space-around',
         padding: 15,
-        marginHorizontal:'10%',
-        marginTop: '5%',
+        marginHorizontal:'8%',    
+        margin: '5%',
         backgroundColor: themes.colors.beige,
         borderRadius: 8,
         alignItems:'center',
@@ -22,6 +22,18 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         height: 62
+    },
+    OrderButton:{
+        backgroundColor: themes.colors.orange,     
+        justifyContent: 'center',
+        padding: '5%',
+        borderRadius: 8,
+    },
+    orderText:{
+        color: themes.colors.white,
+        fontFamily: themes.fonts.MSATitle700Bold,
+        fontSize: 16
+     
     },
     total:{
         fontSize: 19,
