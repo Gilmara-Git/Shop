@@ -9,7 +9,8 @@ const themes = {
         black: '#000000',
         grayish: '#888',
         navy: '#1E1525',
-        beige: '#E1DAD5'
+        beige: '#E1DAD5',
+        orange: '#DC6444'
 
     }, 
     fonts: {

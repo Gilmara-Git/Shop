@@ -5,6 +5,8 @@ import AndroidButton from "../../../components/AndroidButton";
 import IosButton from "../../../components/IosButton";
 import { NavigationStackProp } from "react-navigation-stack";
 import * as cartActions from '../../../store/actions/cart';
+import HeaderButton from '../../../components/UI';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 interface INavigationProps {
   navigation: NavigationStackProp;
@@ -16,6 +18,7 @@ const ProductOverview = ({ navigation }: INavigationProps) => {
   const products = useSelector(
     (state: RootStateOrAny) => state.products.availableProducts
     );
+    
   const dispatch = useDispatch();
 
   return (
@@ -80,8 +83,20 @@ const ProductOverview = ({ navigation }: INavigationProps) => {
   );
 };
 
-ProductOverview.navigationOptions = {
-  headerTitle: "All products",
+ProductOverview.navigationOptions =(navData: any)=> {
+  
+  return { 
+    headerTitle: "All products",
+    headerRight: ()=><HeaderButtons HeaderButtonComponent={HeaderButton}>
+    <Item 
+      title='Cart'
+      iconName={Platform.OS === 'android'? 'md-cart': 'ios-cart'}
+      onPress={()=>{navData.navigation.navigate({routeName: 'Cart'})}}
+      />
+
+  </HeaderButtons>
+  }
+
 };
 
 export default ProductOverview;

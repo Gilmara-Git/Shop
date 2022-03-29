@@ -6,24 +6,24 @@ const initialState= {
     totalAmount: 0
 }
 
-type product = {
+type IProduct = {
+    product: object;
     price: number;
     title: string;
-    id: number
+    id: string;
 }
 
-type props = {
-    action: any;
-    type:any;   
-    product: product;
-}
 
-const cartReducer = (state= initialState, action: props)=>{
-    switch(action.type){
-        case ADD_TO_CART:
-            const addedProduct = action.product;
+const cartReducer = (state= initialState, action: any)=>{
+   
+    if(action.type === 'ADD_TO_CART'){ //Using switch was not passing thru this line       
+           
+            const addedProduct = action.product;           
             const productPrice = addedProduct.price;
-            const productTitle = addedProduct.title
+            const productTitle = addedProduct.title; 
+            const productURL = addedProduct.imageUrl;
+            console.log('--------------------------------------')
+            console.log(addedProduct, 'cart itemsssss')
 
         let updatedOrNewCartItem: CartItem;
 
@@ -32,11 +32,12 @@ const cartReducer = (state= initialState, action: props)=>{
             updatedOrNewCartItem = new CartItem(
                 state.items[addedProduct.id].quantity + 1,
                 productPrice,
-                productTitle,
-                state.items[addedProduct.id].sum + productPrice
+                productTitle,               
+                state.items[addedProduct.id].sum + productPrice,
+                productURL,
                 );     
         }else {
-             updatedOrNewCartItem = new CartItem(1,productPrice, productTitle, productPrice);
+             updatedOrNewCartItem = new CartItem(1,productPrice, productTitle, productPrice, productURL);
             // adding a new item to Cart dinamically
         }
         return { 
