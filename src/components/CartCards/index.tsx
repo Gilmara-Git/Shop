@@ -12,6 +12,7 @@ interface ICartCards {
   prodQuantity: number;
   prodTitle: string;
   prodId: string;
+  prodSum: string;
 }
 
 const CartCards = ({
@@ -19,7 +20,8 @@ const CartCards = ({
   prodPrice,
   prodQuantity,
   prodTitle,
-  prodId
+  prodId,
+  prodSum
 }: ICartCards) => {
   
   const dispatch = useDispatch();
@@ -35,7 +37,7 @@ const CartCards = ({
       <View style={styles.columnContainer}>
         <Text style={styles.title}>{prodTitle}</Text>
         <View style={styles.details}>
-          <Text style={styles.price}>$ {prodPrice.toFixed(2)}</Text>
+          <Text style={styles.price}>${Number(prodSum).toFixed(2)}</Text>
           <View style={styles.quantityContainer}>
             <TouchableOpacity
               style={styles.AntDesign}
