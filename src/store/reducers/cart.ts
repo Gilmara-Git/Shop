@@ -1,4 +1,7 @@
-import ADD_TO_CART from '../actions/cart';
+// import ADD_TO_CART from '../actions/cart';
+// import REMOVE_FROM_CART from '../actions/cart';
+// import DELETE_PRODUCT_FROM_CART from '../actions/cart';
+
 import CartItem from '../../models/cart';
 
 const initialState= {
@@ -6,25 +9,16 @@ const initialState= {
     totalAmount: 0
 }
 
-type IProduct = {
-    product: object;
-    price: number;
-    title: string;
-    id: string;
-}
 
-
-const cartReducer = (state= initialState, action: any)=>{
-   
+const cartReducer = (state= initialState, action: any)=>{       
+    console.log(action.type, 'tipo de acao')
+ 
     if(action.type === 'ADD_TO_CART'){ //Using switch was not passing thru this line       
-           
             const addedProduct = action.product;           
             const productPrice = addedProduct.price;
             const productTitle = addedProduct.title; 
             const productURL = addedProduct.imageUrl;
-            console.log('--------------------------------------')
-            console.log(addedProduct, 'cart itemsssss')
-
+           
         let updatedOrNewCartItem: CartItem;
 
         if(state.items[addedProduct.id]){
@@ -40,6 +34,7 @@ const cartReducer = (state= initialState, action: any)=>{
              updatedOrNewCartItem = new CartItem(1,productPrice, productTitle, productPrice, productURL);
             // adding a new item to Cart dinamically
         }
+        
         return { 
             ...state, //copy of our state
             items: { ...state.items, [addedProduct.id]: updatedOrNewCartItem },
@@ -47,6 +42,58 @@ const cartReducer = (state= initialState, action: any)=>{
         }
     }
     
+    if(action.type === 'REMOVE_QUANTITY_FROM_CART'){
+        const prodId = action.product.id;
+        const productPrice  =  state.items[prodId].productPrice;
+        const prodcutTitle = state.items[prodId].productTitle;
+        const productSum = state.items[prodId].sum;
+        const prodcutURL = state.items[prodId].productURL;
+       
+        const updateCart = new CartItem(
+            state.items[prodId].quantity -1,
+            productPrice,
+            prodcutTitle,
+            productSum,
+            prodcutURL
+        )
+
+        if(state.items[prodId].quantity > 1){
+            return { 
+                ...state, 
+                items:{ ...state.items, [prodId]: updateCart
+                },
+                totalAmount: state.totalAmount - productPrice
+                }
+            
+        }else{
+            console.log(state.items)
+            console.log('precisar deletar este objeto', prodId)
+            delete state.items[prodId]
+            
+            console.log(state.items ,'state items')
+            return {
+                ...state,
+                items: {...state.items},
+                totalAmount: state.totalAmount - productPrice
+            }
+        }
+    }
+  
+    if(action.type === 'DELETE_PRODUCT_FROM_CART'){
+        console.log('precisamos deletar o produto inteiro to cart')
+        const prodId = action.prodId;
+        const prodPrice = state.items[prodId].productPrice;
+        const prodQuantity =  state.items[prodId].quantity;
+        delete state.items[prodId];         
+        const reduceFromTotal = prodPrice * prodQuantity;
+       
+        return {
+            ...state,
+            items: { ...state.items},
+            totalAmount: state.totalAmount - reduceFromTotal
+        }
+    }
+        
     return state;
 
 }

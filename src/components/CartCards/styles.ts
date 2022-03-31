@@ -29,14 +29,14 @@ const styles = StyleSheet.create({
         
     },
     columnContainer: {
-        marginLeft: '1%',
+        marginLeft: '2%',
         justifyContent: 'space-around',
         height: '80%' ,
         width: '100%'
     },
     title:{
         fontFamily: themes.fonts.MSATitle700Bold,
-        fontSize: 18
+        fontSize: 17
     },
     details:{
         flexDirection: 'row',
@@ -51,15 +51,15 @@ const styles = StyleSheet.create({
     },
     quantityContainer:{
         backgroundColor: themes.colors.lavender,
-        paddingHorizontal:6,
+        paddingHorizontal:5,
         borderRadius: 50,
-        alignItems: 'center',
         flexDirection: 'row',
+        alignItems: 'center',
         justifyContent: 'space-between',
-
     },
     AntDesign:{
-        margin: 4
+        // marginHorizontal: '2%',
+        paddingHorizontal: '3%'
     },
     quantity:{
         fontSize: 18,
