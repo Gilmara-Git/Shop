@@ -10,9 +10,11 @@ const Cart = () => {
 
   // const cartItems1 = useSelector((state: RootStateOrAny) => state.cart.items)
   // console.log(cartItems1, '......................................')
+  // const total = useSelector((state:RootStateOrAny)=>state.cart.totalAmount);
+
   const cartItems = useSelector((state: RootStateOrAny) => {
     const transformedCartItems = [];
-    for (let key in state.cart.items) {
+    for (let key in state.cart.items) {      
       transformedCartItems.push({
         prodId: key,
         prodPrice: state.cart.items[key].productPrice,
@@ -26,7 +28,7 @@ const Cart = () => {
     return transformedCartItems;
   });
 
-  console.log(cartItems.length, "CARTITEMS");
+  // console.log(cartItems, "CARTITEMS");
   return (
     <>
       <FlatList
@@ -38,6 +40,7 @@ const Cart = () => {
             prodTitle={itemData.item.prodTitle}
             prodPrice={itemData.item.prodPrice}
             prodQuantity={itemData.item.prodQuantity}
+            prodId={itemData.item.prodId}
           />
         )}
       />
@@ -53,12 +56,12 @@ const Cart = () => {
                 console.log("testando");
               }}
             >
-              <Text style={styles.orderText}>Order Now</Text>
+              <Text style={styles.orderText}>ORDER</Text>
             </TouchableOpacity>
           )}
         </View>
         <View style={styles.amountContainer}>
-          <Text style={styles.amount}>$ {cartTotalAmount.toFixed(2)}</Text>
+          <Text style={styles.amount}>$ {Math.abs(cartTotalAmount).toFixed(2)}</Text>
         </View>
       </View>
     </>

@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
     orderText:{
         color: themes.colors.white,
         fontFamily: themes.fonts.MSATitle700Bold,
-        fontSize: 16
+        fontSize: 15
      
     },
     total:{
