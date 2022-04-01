@@ -1,4 +1,4 @@
-const UPDATEPRODUCT = 'UPDATEPRODUCT';
+export const UPDATEPRODUCT = 'UPDATEPRODUCT';
 type props = {
     id: string;
 }
