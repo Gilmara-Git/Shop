@@ -6,7 +6,7 @@ import ordersReducer from './src/store/reducers/orders';
 import { Provider } from 'react-redux';
 import ShopNavigator from './src/navigation/ShopNavigator';
 
-import AppLoading from 'expo-app-loading';
+import  AppLoading from "expo-app-loading";
 import { useFonts } from 'expo-font';
 import { 
   MontserratAlternates_700Bold, 
