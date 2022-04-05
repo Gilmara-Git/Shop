@@ -11,8 +11,7 @@ const initialState= {
 
 
 const cartReducer = (state= initialState, action: any)=>{       
-    console.log(action.type, 'tipo de acao')
- 
+    
     if(action.type === 'ADD_TO_CART'){ //Using switch was not passing thru this line       
             const addedProduct = action.product;           
             const productPrice = addedProduct.price;
@@ -46,7 +45,7 @@ const cartReducer = (state= initialState, action: any)=>{
         const prodId = action.product.id;
         const productPrice  =  state.items[prodId].productPrice;
         const prodcutTitle = state.items[prodId].productTitle;
-        const productSum = state.items[prodId].sum;
+        const productSum = state.items[prodId].sum  - productPrice;
         const prodcutURL = state.items[prodId].productURL;
        
         const updateCart = new CartItem(
@@ -66,11 +65,9 @@ const cartReducer = (state= initialState, action: any)=>{
                 }
             
         }else{
-            console.log(state.items)
-            console.log('precisar deletar este objeto', prodId)
-            delete state.items[prodId]
-            
-            console.log(state.items ,'state items')
+           
+            delete state.items[prodId];            
+         
             return {
                 ...state,
                 items: {...state.items},
@@ -80,7 +77,6 @@ const cartReducer = (state= initialState, action: any)=>{
     }
   
     if(action.type === 'DELETE_PRODUCT_FROM_CART'){
-        console.log('precisamos deletar o produto inteiro to cart')
         const prodId = action.prodId;
         const prodPrice = state.items[prodId].productPrice;
         const prodQuantity =  state.items[prodId].quantity;

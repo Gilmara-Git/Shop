@@ -2,10 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import { createStore, combineReducers } from 'redux';
 import productsReducer from './src/store/reducers/products';
 import cartReducer from './src/store/reducers/cart';
+import ordersReducer from './src/store/reducers/orders';
 import { Provider } from 'react-redux';
 import ShopNavigator from './src/navigation/ShopNavigator';
 
-import AppLoading from 'expo-app-loading';
+import  AppLoading from "expo-app-loading";
 import { useFonts } from 'expo-font';
 import { 
   MontserratAlternates_700Bold, 
@@ -16,7 +17,8 @@ import {
 
 const rootReducer = combineReducers({
   products: productsReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  orders: ordersReducer
 });
 // export type RootState = ReturnType<typeof rootReducer>
 

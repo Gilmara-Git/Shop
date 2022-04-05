@@ -5,9 +5,6 @@ export const DELETE_PRODUCT_FROM_CART = 'DELETE_PRODUCT_FROM_CART';
 type Iproduct = {
     product: object;
 }
-// type IProdId = {
-//     prodId : string;
-// }
 
 export function addToCart(product: Iproduct){
    

@@ -12,7 +12,7 @@ const Cart = () => {
   // console.log(cartItems1, '......................................')
   // const total = useSelector((state:RootStateOrAny)=>state.cart.totalAmount);
 
-  const cartItems = useSelector((state: RootStateOrAny) => {
+  let cartItems = useSelector((state: RootStateOrAny) => {
     const transformedCartItems = [];
     for (let key in state.cart.items) {      
       transformedCartItems.push({
@@ -27,8 +27,8 @@ const Cart = () => {
 
     return transformedCartItems;
   });
+  cartItems.sort((a,b)=>a.prodTitle > b.prodTitle ? 1 : -1); // display cartItems alphabetically
 
-  // console.log(cartItems, "CARTITEMS");
   return (
     <>
       <FlatList
@@ -41,6 +41,7 @@ const Cart = () => {
             prodPrice={itemData.item.prodPrice}
             prodQuantity={itemData.item.prodQuantity}
             prodId={itemData.item.prodId}
+            prodSum={itemData.item.prodSum}
           />
         )}
       />
