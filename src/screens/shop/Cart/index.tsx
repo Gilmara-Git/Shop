@@ -1,16 +1,20 @@
 import { Text, FlatList, View, TouchableOpacity } from "react-native";
 import CartCards from "../../../components/CartCards";
 import { styles } from "./styles";
-import { useSelector, RootStateOrAny } from "react-redux";
+import { useSelector, RootStateOrAny, useDispatch } from "react-redux";
+import * as ordersActions from '../../../store/actions/orders';
+import { NavigationStackProp } from 'react-navigation-stack';
 
-const Cart = () => {
+interface INavigationStackProp {
+  navigation: NavigationStackProp;
+}
+
+const Cart = ({navigation}:INavigationStackProp) => {
+  const dispatch = useDispatch();
+
   const cartTotalAmount = useSelector(
     (state: RootStateOrAny) => state.cart.totalAmount
   );
-
-  // const cartItems1 = useSelector((state: RootStateOrAny) => state.cart.items)
-  // console.log(cartItems1, '......................................')
-  // const total = useSelector((state:RootStateOrAny)=>state.cart.totalAmount);
 
   let cartItems = useSelector((state: RootStateOrAny) => {
     const transformedCartItems = [];
@@ -54,7 +58,7 @@ const Cart = () => {
               style={styles.OrderButton}
               activeOpacity={0.5}
               onPress={() => {
-                console.log("testando");
+               dispatch(ordersActions.addOrder({cartItems, totalAmount: cartTotalAmount}))
               }}
             >
               <Text style={styles.orderText}>ORDER</Text>
@@ -69,4 +73,10 @@ const Cart = () => {
   );
 };
 
+
+Cart.navigationOptions = ()=>{
+  return { 
+    headerTitle: 'Your Cart'
+  }
+}
 export default Cart;
