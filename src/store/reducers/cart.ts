@@ -1,6 +1,8 @@
 // import ADD_TO_CART from '../actions/cart';
 // import REMOVE_FROM_CART from '../actions/cart';
 // import DELETE_PRODUCT_FROM_CART from '../actions/cart';
+// import ADD_ORDER from '../actions/orders';
+// I would need these imports if Iwas using switch below
 
 import CartItem from '../../models/cart';
 
@@ -11,7 +13,7 @@ const initialState= {
 
 
 const cartReducer = (state= initialState, action: any)=>{       
-    
+    console.log(action.type, 'action passing in Cart')
     if(action.type === 'ADD_TO_CART'){ //Using switch was not passing thru this line       
             const addedProduct = action.product;           
             const productPrice = addedProduct.price;
@@ -88,6 +90,9 @@ const cartReducer = (state= initialState, action: any)=>{
             items: { ...state.items},
             totalAmount: state.totalAmount - reduceFromTotal
         }
+    }
+    if(action.type === "ADD_ORDER"){
+        return initialState;
     }
         
     return state;
