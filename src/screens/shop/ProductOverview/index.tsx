@@ -1,3 +1,4 @@
+import React from 'react'
 import { FlatList, Platform, TouchableOpacity } from "react-native";
 import { RootStateOrAny, useSelector, useDispatch } from "react-redux";
 import ProductItem from "../../../components/ProductItem";
@@ -8,15 +9,14 @@ import * as cartActions from "../../../store/actions/cart";
 import HeaderButton from "../../../components/UI/HeaderButton";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
-interface INavigationProps {
+type INavigationProps = {
   navigation: NavigationStackProp;
-}
+ }
 
 const ProductOverview = ({ navigation }: INavigationProps) => {
-  const products = useSelector(
+    const products = useSelector(
     (state: RootStateOrAny) => state.products.availableProducts
   );
-  // console.log(products, " products on overview");
 
   const dispatch = useDispatch();
 
@@ -88,6 +88,7 @@ const ProductOverview = ({ navigation }: INavigationProps) => {
 };
 
 ProductOverview.navigationOptions = (navData: any) => {
+
    return {
     headerTitle: "All products",
     headerRight: () => (
@@ -99,8 +100,23 @@ ProductOverview.navigationOptions = (navData: any) => {
             navData.navigation.navigate({ routeName: "Cart" });
           }}
         />
+
       </HeaderButtons>
+    
     ),
+    headerLeft:()=> (
+      <HeaderButtons HeaderButtonComponent={HeaderButton} >
+        <Item
+          title="Cart"
+          iconName='menu'
+          onPress={() => {
+            navData.navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>
+    )
+    
+     
   };
 };
 
