@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 import themes from "../../global/styles/themes";
+import { Dimensions } from 'react-native';
+const width = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
   container: {
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
     padding: "2%",
     borderRadius: 8,
     marginTop: "2%",
-    marginHorizontal: "30%", // Apply Dimensions API here
+    marginHorizontal: width < 350 ? "29%": '32%', 
   },
   buttonText: {
     color: themes.colors.white,
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
     marginTop: "2%",
     justifyContent: "center",
     alignItems: "center",
-    marginHorizontal: "35%",
+    marginHorizontal: "30%",
     borderRadius: 8,
   },
   image: {
