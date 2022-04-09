@@ -23,7 +23,7 @@ const rootReducer = combineReducers({
   cart: cartReducer,
   orders: ordersReducer
 });
-// export type RootState = ReturnType<typeof rootReducer>
+
 
 const store =  createStore(rootReducer);
 
@@ -32,8 +32,8 @@ export default function App() {
     MontserratAlternates_700Bold,
     MontserratAlternates_300Light ,
     MontserratAlternates_600SemiBold_Italic
-  })
-console.log(fontsLoaded, 'fonts loaded')
+  });
+
   if(!fontsLoaded){
     return <AppLoading />
   }
@@ -46,5 +46,5 @@ console.log(fontsLoaded, 'fonts loaded')
     
     </Provider>
   );
-}
+};
 

@@ -19,6 +19,7 @@ const Orders = () => {
           totalAmount={itemData.item.totalAmount}
           items={itemData.item.items}
           orderId={itemData.item.id}
+          key={itemData.item.id}
         />
       )}
     />
