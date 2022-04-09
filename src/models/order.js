@@ -7,7 +7,7 @@ class Order {
        this.date = date;
    } 
    get readableDate(){
-       // We are not the toLocalDateString because it only gives full date details in 'ios'
+       // We are not the toLocaleDateString because it only gives full date details in 'ios'
     //    return this.date.toLocaleDateString('en-EN', {
     //        year: 'numeric',
     //        month: 'long',
