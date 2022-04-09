@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         
     },
     columnContainer: {
-        marginLeft: '2%',
+        marginLeft: '3%',
         justifyContent: 'space-around',
         height: '80%' ,
         width: '100%'

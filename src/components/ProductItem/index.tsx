@@ -7,13 +7,13 @@ import {
 } from 'react-native';
 import { styles } from './styles';
 
-interface IProductOverview {
+type IProductOverview =  {
     title: string;
     imageUrl: string;  
     price: string; 
     children: ReactNode;
 
-  }
+  };
 
 
 const ProductItem = ({title, imageUrl, price, children, }: IProductOverview)=>{

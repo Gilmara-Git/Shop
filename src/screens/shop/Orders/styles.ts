@@ -7,5 +7,20 @@ export const styles = StyleSheet.create({
     },
     title:{
         fontFamily: themes.fonts.MSATitle700Bold , 
-    fontSize: 55   }
+    fontSize: 55   },
+    buttonContainer: {
+        alignItems: "center",
+        backgroundColor: themes.colors.orange,   
+        padding: '2%',
+        borderRadius: 8,
+        marginTop: '2%',      
+        marginHorizontal: '30%'// Apply Dimensions API here
+     
+    },
+    buttonText:{
+      color: themes.colors.white,
+      fontFamily: themes.fonts.MSATitle700Bold,
+      fontSize: 14
+    }
+   
 });

@@ -1,5 +1,8 @@
 import { StyleSheet } from 'react-native';
-import themes from './../../../global/styles/themes'
+import themes from './../../../global/styles/themes';
+import { Dimensions } from 'react-native';
+const height = Dimensions.get('window').height;
+console.log(height, 'height on details');
 
 
 export const styles = StyleSheet.create({  
@@ -8,13 +11,13 @@ export const styles = StyleSheet.create({
     },
     imageContainer:{
         width: '100%',
-        height: '80%'
+        height: height < 550 ? '70%' : '80%',
     },
    detail:{
        justifyContent: 'center',
        alignItems: 'center',
        backgroundColor: themes.colors.beige,
-       height: '20%',
+       height: height < 550 ?'30%': '20%',
        paddingVertical: 25
      
    },

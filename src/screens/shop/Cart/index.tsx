@@ -61,7 +61,7 @@ const Cart = ({navigation}:INavigationStackProp) => {
                dispatch(ordersActions.addOrder({cartItems, totalAmount: cartTotalAmount}))
               }}
             >
-              <Text style={styles.orderText}>ORDER</Text>
+              <Text style={styles.orderText}>Order</Text>
             </TouchableOpacity>
           )}
         </View>

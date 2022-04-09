@@ -13,6 +13,9 @@ import {
   MontserratAlternates_300Light,
   MontserratAlternates_600SemiBold_Italic
 } from '@expo-google-fonts/montserrat-alternates';
+import { enableScreens } from 'react-native-screens';
+
+enableScreens();
 
 
 const rootReducer = combineReducers({

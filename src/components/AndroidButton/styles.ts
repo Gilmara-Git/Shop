@@ -1,7 +1,8 @@
 
 import { StyleSheet } from 'react-native';
 import themes from '../../global/styles/themes';
-
+import { Dimensions } from 'react-native';
+const width = Dimensions.get('window').width;
 
 export const styles = StyleSheet.create({
     container:{
@@ -17,8 +18,7 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         flex: 1,
         fontFamily: themes.fonts.MSATitle700Bold,
-        fontSize: 15
-     
-     
+        fontSize: width < 350 ? 11: 15
+
     }
 });

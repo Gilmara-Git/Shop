@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     totalContainer:{
         flexDirection: 'row',
         height: 62,
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         padding: 15,
         marginHorizontal:'8%',    
         margin: '5%',
@@ -24,15 +24,17 @@ export const styles = StyleSheet.create({
         height: 62
     },
     OrderButton:{
-        backgroundColor: themes.colors.orange,     
+        backgroundColor: themes.colors.primary,     
         justifyContent: 'center',
         padding: '5%',
         borderRadius: 8,
+        width: '100%'
     },
     orderText:{
         color: themes.colors.white,
         fontFamily: themes.fonts.MSATitle700Bold,
-        fontSize: 15
+        fontSize: 14,
+        textAlign: 'center'
      
     },
     total:{
@@ -49,7 +51,7 @@ export const styles = StyleSheet.create({
     amount:{
         fontSize: 19,
         fontFamily: themes.fonts.MSA600SemiBoldItalic,
-        color: themes.colors.orange
+        color: themes.colors.navy
         
     }
     

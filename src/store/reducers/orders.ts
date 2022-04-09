@@ -6,6 +6,8 @@ const initialState = {
 };
 
 const OrderReducer = (state = initialState, action: any)=>{
+    console.log(action.cartItems, 'cartItems no order reducer')
+    console.log(action.totalAmount, 'cartItems no order reducer')
   
     if(action.type === 'ADD_ORDER'){          
         const newOrder = new Order(
