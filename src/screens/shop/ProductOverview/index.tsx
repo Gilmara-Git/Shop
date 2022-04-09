@@ -1,5 +1,5 @@
-import React from 'react'
-import { FlatList, Platform, TouchableOpacity } from "react-native";
+import React, { useState, useEffect } from 'react'
+import { FlatList, Platform, TouchableOpacity, Dimensions } from "react-native";
 import { RootStateOrAny, useSelector, useDispatch } from "react-redux";
 import ProductItem from "../../../components/ProductItem";
 import AndroidButton from "../../../components/AndroidButton";
@@ -9,11 +9,13 @@ import * as cartActions from "../../../store/actions/cart";
 import HeaderButton from "../../../components/UI/HeaderButton";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
-type INavigationProps = {
+interface INavigationProps  {
   navigation: NavigationStackProp;
  }
 
 const ProductOverview = ({ navigation }: INavigationProps) => {
+
+
     const products = useSelector(
     (state: RootStateOrAny) => state.products.availableProducts
   );
