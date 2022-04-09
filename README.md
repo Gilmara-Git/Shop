@@ -8,14 +8,14 @@
 ## About
 
 This **Shop** app displays a list of distinct products that can be added to a **cart** and later you can make an order.
-If you click on a product, a **product detail** page is displayed and user can also add it to Cart from there.
+If you click on a product, a **product detail** page is displayed and user can also add it a **cart** from there.
 
-<p>User is able to increase, decrease items from the Cart or delete an item at once, no matter the previous quantity selected.</p>
+<p>User is able to increase, decrease items from the <strong>cart</strong>  or delete an item at once, no matter the previous quantity selected.</p>
 Then, users can place their orders.
-<h1 align='center'><img src='https://ik.imagekit.io/cnbmdh4b9w/Screenshot_1_kJJHZPFVu.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649372630084'/></h1>
+<h1 align='center'><img src='https://ik.imagekit.io/cnbmdh4b9w/ezgif.com-gif-maker__5__FnEwHwJ12.gif?ik-sdk-version=javascript-1.4.3&updatedAt=1649533857489'/></h1>
 
 ## Motivation
-Practice **React Native** fundamentals such as Components, styling, font, Images, Button(TouchableOpacity, TouchableNativeFeedback), Lists (ScrollView and FlatList), navigation and state management with Redux).
+Practice **React Native** fundamentals such as Components, styling, font, Images, Button(TouchableOpacity, TouchableNativeFeedback), Lists (ScrollView and FlatList), navigation and state management with Redux) and Typescript.
 
 ## Improvements
 Applied customized style for components and pages.
@@ -30,9 +30,11 @@ Used 'Dimensions API' to adjust fontSize on buttons whenever screen width is sma
 
 ## Technologies used
 - React Native
+- Typescript 
 - Expo
 - React Navigation v4 (stackNavigator and  drawerNavigator)
 - Redux (Global state management)
+- Used Lib 'moment' on models > 'order.js' to output 'date' in details on Android as the built in JS method(toLocaleDateString) only outputs 'date' in details on iOS. This is due to how JS engine works in Android.
 
 ## Course Instructor:
 <p>Maximilian Schwarzmüller</p>
