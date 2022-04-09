@@ -1,56 +1,44 @@
-import { FlatList, Text , View} from 'react-native';
-import { styles } from './styles';
-import { useSelector, RootStateOrAny } from 'react-redux';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
-import HeaderButton from '../../../components/UI/HeaderButton';
-import { NavigationStackProp } from "react-navigation-stack";
 
-type IOrders  = {
-    navigation: NavigationStackProp
-}
+import { FlatList } from "react-native";
+import { useSelector, RootStateOrAny } from "react-redux";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import HeaderButton from "../../../components/UI/HeaderButton";
+import OrderItem from "../../../components/OrderItem";
 
-const Orders = ({navigation}: IOrders)  => {
+const Orders = () => {
 
-    const orders  = useSelector((state: RootStateOrAny)=> state.orders.orders);
-    console.log(Object.prototype.toString.call(orders))
-    for(let order of orders){
-        console.log(order.totalAmount, 'ORRRDERRER')
-        for(let item of order.items){
-            console.log(item.prodPrice, 'sou o item')
-        }
-    }
-    return (
-            <FlatList 
-                contentContainerStyle={
-                    {flex:1, justifyContent: 'center', alignItems: 'center'}
-                }
-                data={orders} 
-                keyExtractor={item=> item.id}
-                renderItem={(itemData)=>(
-                <View>
-                    <Text style={styles.title}>Under Construction</Text>
-                    <Text style={styles.title}>Total Amount: ${itemData.item.totalAmount.toFixed(2)}</Text>
-                </View>)}
-                />
-            )
+  const orders = useSelector((state: RootStateOrAny) => state.orders.orders);
 
-}
+  return (
+    <FlatList
+      data={orders}
+      keyExtractor={(item) => item.id}
+      renderItem={(itemData) => (
+        <OrderItem
+          date={itemData.item.readableDate}
+          totalAmount={itemData.item.totalAmount}
+          items={itemData.item.items}
+          orderId={itemData.item.id}
+        />
+      )}
+    />
+  );
+};
 
-Orders.navigationOptions = ( navData: any)=>{
-    return { 
-        headerTitle: 'My Orders',
-        headerLeft: ()=> (
-            <HeaderButtons HeaderButtonComponent={HeaderButton}>
-                <Item 
-                    title='Menu' 
-                    iconName='ios-menu'
-                    onPress={()=>{navData.navigation.toggleDrawer()
-                    }}
-                    
-                />
-            </HeaderButtons>)
-              
-           
-    }
-}
+Orders.navigationOptions = (navData: any) => {
+  return {
+    headerTitle: "My Orders",
+    headerLeft: () => (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Menu"
+          iconName="ios-menu"
+          onPress={() => {
+            navData.navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>
+    ),
+  };
+};
 export default Orders;

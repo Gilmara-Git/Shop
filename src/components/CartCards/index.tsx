@@ -17,7 +17,6 @@ interface ICartCards {
 
 const CartCards = ({
   prodImageURL,
-  prodPrice,
   prodQuantity,
   prodTitle,
   prodId,
