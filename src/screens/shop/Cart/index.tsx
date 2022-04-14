@@ -3,13 +3,9 @@ import CartCards from "../../../components/CartCards";
 import { styles } from "./styles";
 import { useSelector, RootStateOrAny, useDispatch } from "react-redux";
 import * as ordersActions from '../../../store/actions/orders';
-import { NavigationStackProp } from 'react-navigation-stack';
 
-interface INavigationStackProp {
-  navigation: NavigationStackProp;
-}
 
-const Cart = ({navigation}:INavigationStackProp) => {
+const Cart = () => {
   const dispatch = useDispatch();
 
   const cartTotalAmount = useSelector(

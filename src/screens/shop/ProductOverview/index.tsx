@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { FlatList, Platform, TouchableOpacity, Dimensions } from "react-native";
+import { FlatList, Platform, TouchableOpacity } from "react-native";
 import { RootStateOrAny, useSelector, useDispatch } from "react-redux";
 import ProductItem from "../../../components/ProductItem";
 import AndroidButton from "../../../components/AndroidButton";

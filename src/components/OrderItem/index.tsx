@@ -9,7 +9,8 @@ interface IOrderItem {
   orderId: string;
 }
 
-const OrderItem = ({ orderId, items, totalAmount, date }: IOrderItem) => {
+const OrderItem = ({orderId, items, totalAmount, date }: IOrderItem) => {
+
 
   const [showDetails, setShowDetails] = useState(false);
   return (
@@ -39,8 +40,8 @@ const OrderItem = ({ orderId, items, totalAmount, date }: IOrderItem) => {
         <View>
           <Text style={styles.orderNumber}>Order #:{orderId}</Text>
           {items.map((cartItem:any) => (
-            <View>
-              <View style={styles.details}>
+            <View key={cartItem.prodId} >
+              <View  style={styles.details}>               
                 <Text style={styles.detailText}>{cartItem.prodTitle}</Text>
                 <Text style={styles.detailText}>
                   Qty: {cartItem.prodQuantity}

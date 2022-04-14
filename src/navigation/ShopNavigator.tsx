@@ -8,7 +8,9 @@ import ProductOverview  from '../screens/shop/ProductOverview';
 import Cart from '../screens/shop/Cart';
 import ProductDetail from '../screens/shop/ProductDetail';
 import Orders from '../screens/shop/Orders';
+import UserProducts from '../screens/user/UserProducts'
 import { Ionicons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
 
 const defaultNavAllPages ={
@@ -67,10 +69,26 @@ const OrdersNavigator = createStackNavigator({
         defaultNavigationOptions: defaultNavAllPages
     });  
 
+   const AdminNavigator = createStackNavigator({
+       Admin:{
+           screen: UserProducts
+       }
+   }, {
+       navigationOptions:{
+           drawerIcon:(drawerConfig: any)=>
+                <MaterialIcons 
+                name='admin-panel-settings'
+                size={23} 
+                color={drawerConfig.tintColor}
+                 />
+       },
+       defaultNavigationOptions: defaultNavAllPages
+   }); 
 
 const SideDrawerNavigator = createDrawerNavigator({
     Products: ProductsNavigator,
-    Orders: OrdersNavigator
+    Orders: OrdersNavigator,
+    Admin: AdminNavigator
 
 },
     {contentOptions: {
