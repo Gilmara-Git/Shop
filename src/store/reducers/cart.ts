@@ -18,7 +18,7 @@ const cartReducer = (state = initialState, action : any) => {
       const productValue = addedProduct.price;
       const productTitle = addedProduct.title;
       const productURL = addedProduct.imageUrl;
-      const productTotalSum = addedProduct.sum;
+   
 
       let updatedOrNewCartItem: CartItem;
 
@@ -79,13 +79,10 @@ const cartReducer = (state = initialState, action : any) => {
         };
       }
     case DELETE_PRODUCT_FROM_CART:
-      const productId = action.prodId;
-      const prodPrice = state.items[productId].productPrice;
-      const prodQuantity = state.items[productId].quantity;
+      const productId = action.prodId;      
+      const reduceFromTotal = state.items[productId].sum;   
       delete state.items[productId];
-      const reduceFromTotal = prodPrice * prodQuantity;
    
-
       return {
         ...state,
         items: { ...state.items },
@@ -108,9 +105,7 @@ const cartReducer = (state = initialState, action : any) => {
         return { ...state,
                  items: stateSnapShot,
                  totalAmount: state.totalAmount - prodTotalValue
-
         }
-  
     }
 
     return state;
