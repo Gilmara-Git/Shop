@@ -6,8 +6,14 @@ import IosButton from '../../../components/IosButton';
 import HeaderButton from '../../../components/UI/HeaderButton';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import * as productActions from  '../../../store/actions/products';
+import  { NavigationStackProp } from 'react-navigation-stack';
 
-const UserProducts = () => {
+interface IEditProduct {
+    navigation : NavigationStackProp;
+}
+
+const UserProducts = ({navigation}: IEditProduct) => {
+    console.log(navigation, 'navigation on EditProduct')
     const userProducts = useSelector((state:RootStateOrAny) => state.products.userProducts);
     const dispatch = useDispatch();
     return <FlatList 
@@ -22,11 +28,11 @@ const UserProducts = () => {
                         {Platform.OS === 'ios'? 
                         (<IosButton 
                             title='Edit'
-                            onPress={()=>{console.log(itemData.item.id)}}
+                            onPress={()=>{navigation.navigate('EditProduct')}}
                             />) : 
                         (<AndroidButton 
                             title='Edit'
-                            onPress={()=>{console.log('edit')}}
+                            onPress={()=>{navigation.navigate('EditProduct')}}
                             />)}
 
                         {Platform.OS === 'ios'? 
