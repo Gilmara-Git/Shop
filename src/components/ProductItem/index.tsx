@@ -10,14 +10,14 @@ import { styles } from './styles';
 type IProductOverview =  {
     title: string;
     imageUrl: string;  
-    price: string; 
+    price: number; 
     children: ReactNode;
 
   };
 
 
 const ProductItem = ({title, imageUrl, price, children, }: IProductOverview)=>{
-   
+  
     return (
        
         <View style={styles.product}>

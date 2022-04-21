@@ -2,7 +2,7 @@ import { ADD_TO_CART } from "../actions/cart";
 import { REMOVE_QUANTITY_FROM_CART } from "../actions/cart";
 import { DELETE_PRODUCT_FROM_CART } from "../actions/cart";
 import { ADD_ORDER } from "../actions/orders";
-import { DELETE_PRODUCT } from '../actions/products';
+import { DELETE_PRODUCT } from "../actions/products";
 
 import CartItem from "../../models/cart";
 
@@ -11,14 +11,13 @@ const initialState = {
   totalAmount: 0,
 };
 
-const cartReducer = (state = initialState, action : any) => {
+const cartReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case ADD_TO_CART:
       const addedProduct = action.product;
       const productValue = addedProduct.price;
       const productTitle = addedProduct.title;
       const productURL = addedProduct.imageUrl;
-   
 
       let updatedOrNewCartItem: CartItem;
 
@@ -28,7 +27,9 @@ const cartReducer = (state = initialState, action : any) => {
           state.items[addedProduct.id].quantity + 1,
           productValue,
           productTitle,
-          state.items[addedProduct.id].sum + productValue,
+          (
+            Number(state.items[addedProduct.id].sum) + Number(productValue)
+          ).toFixed(2),
           productURL
         );
       } else {
@@ -45,7 +46,7 @@ const cartReducer = (state = initialState, action : any) => {
       return {
         ...state, //copy of our state
         items: { ...state.items, [addedProduct.id]: updatedOrNewCartItem },
-        totalAmount: state.totalAmount + productValue,
+        totalAmount: Number(state.totalAmount) + Number(productValue),
       };
 
     case REMOVE_QUANTITY_FROM_CART:
@@ -79,10 +80,10 @@ const cartReducer = (state = initialState, action : any) => {
         };
       }
     case DELETE_PRODUCT_FROM_CART:
-      const productId = action.prodId;      
-      const reduceFromTotal = state.items[productId].sum;   
+      const productId = action.prodId;
+      const reduceFromTotal = state.items[productId].sum;
       delete state.items[productId];
-   
+
       return {
         ...state,
         items: { ...state.items },
@@ -93,22 +94,23 @@ const cartReducer = (state = initialState, action : any) => {
         return initialState;
       }
 
-      case DELETE_PRODUCT:
-        const proDId = action.pid;
-        if(!state.items[proDId]){
-            return state;
-        }
-        const stateSnapShot = {...state.items};
-        const prodTotalValue = stateSnapShot[proDId].sum;
-        delete stateSnapShot[proDId];
+    case DELETE_PRODUCT:
+      const proDId = action.pid;
+      if (!state.items[proDId]) {
+        return state;
+      }
+      const stateSnapShot = { ...state.items };
+      const prodTotalValue = stateSnapShot[proDId].sum;
+      delete stateSnapShot[proDId];
 
-        return { ...state,
-                 items: stateSnapShot,
-                 totalAmount: state.totalAmount - prodTotalValue
-        }
-    }
+      return {
+        ...state,
+        items: stateSnapShot,
+        totalAmount: state.totalAmount - prodTotalValue,
+      };
+  }
 
-    return state;
+  return state;
 };
 
 export default cartReducer;

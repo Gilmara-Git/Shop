@@ -10,23 +10,18 @@
 This **Shop** app displays a list of distinct products that can be added to a **cart** and later you can make an order.
 If you click on a product, a **product detail** page is displayed and user can also add it a **cart** from there.
 
-<p>User is able to increase, decrease items from the <strong>cart</strong>  or delete an item at once, no matter the previous quantity selected.</p>
-Then, users can place their orders.
+<p>User is able to increase, decrease items from the <strong>cart</strong>  or delete an item at once, no matter the previous quantity selected. The total amount in the <strong>cart</strong> reflects the change.</p>
+Then, users can place their orders, but clicking on Order.
+<p>After placing an order they can go to the menu on the top left and navigate to Orders.</p>
+<p>Each user has an admin access, so they can add/create new products, delete or edit an existing one(except the price field).</p>
 <h1 align='center'><img src='https://ik.imagekit.io/cnbmdh4b9w/ezgif.com-gif-maker__5__FnEwHwJ12.gif?ik-sdk-version=javascript-1.4.3&updatedAt=1649533857489'/></h1>
 
 ## Motivation
 Practice **React Native** fundamentals such as Components, styling, font, Images, Button(TouchableOpacity, TouchableNativeFeedback), Lists (ScrollView and FlatList), navigation and state management with Redux) and Typescript.
 
 ## Improvements
-Applied customized style for components and pages.
+Applied my own customized style for components and pages.
 Used 'Dimensions API' to adjust fontSize on buttons whenever screen width is smaller than 350.
-
-
-<!-- <p>In order to practice LinearGradient, I styled the FallBack Screen with LinearGradient. FallBack screen is the page displayed when the there is no Meals being filtered or there is no Meal in Favorites.</p> -->
-
-<!-- ## Improvements to be applied
-- Adapt the 'app' to be used on smaller devices and landscape position, by explorinng the advantages of Dimensions API) -->
-
 
 ## Technologies used
 - React Native

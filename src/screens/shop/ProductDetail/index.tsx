@@ -33,7 +33,7 @@ const ProductDetail = ({ navigation }: INavigationProps) => {
         <Text numberOfLines={3} style={styles.description}>
           {productSelected.description}
         </Text>
-        <Text style={styles.price}>${productSelected.price.toFixed(2)}</Text>
+        <Text style={styles.price}>${productSelected.price}</Text>
         <View style={styles.button}>
           {Platform.OS === "android" ? (
             <AndroidButton

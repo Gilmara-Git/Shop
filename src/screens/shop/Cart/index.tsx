@@ -29,6 +29,7 @@ const Cart = () => {
   });
   cartItems.sort((a,b)=>a.prodTitle > b.prodTitle ? 1 : -1); // display cartItems alphabetically
 
+
   return (
     <>
       <FlatList
