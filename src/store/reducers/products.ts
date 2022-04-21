@@ -10,9 +10,8 @@ const initialState = {
 }
 
 const productsReducer = (state = initialState, action: any)=>{
-    console.log(action.productData, 'action type no products reducer')
 
-    switch(action.productData){
+    switch(action.type){
         case CREATE_PRODUCT:
             const newProduct = new Product(
                 new Date().getMilliseconds().toString(), 
@@ -20,7 +19,8 @@ const productsReducer = (state = initialState, action: any)=>{
                 action.productData.title,
                 action.productData.imageUrl,
                 action.productData.description,
-                action.productData.price);
+                Number(action.productData.price).toFixed(2)
+                );
 
                 return {
                     ...state,

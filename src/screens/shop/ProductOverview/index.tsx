@@ -40,7 +40,7 @@ const ProductOverview = ({ navigation }: INavigationProps) => {
           <ProductItem
             imageUrl={itemData.item.imageUrl}
             title={itemData.item.title}
-            price={itemData.item.price.toFixed(2)}
+            price={itemData.item.price}
           >
             {Platform.OS === "ios" ? (
               <IosButton

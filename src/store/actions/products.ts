@@ -7,11 +7,11 @@ type ProductId = {
 };
 
 type Product = {
-  id: string;
+  prodId?: string;
   title: string;
   imageUrl: string;
   description: string;
-  price?: number;
+  price?: number | string;
 };
 export function createProduct({
   title,
@@ -30,10 +30,10 @@ export function createProduct({
   };
 }
 
-export function updateProduct({ id, title, imageUrl, description }: Product) {
+export function updateProduct({ prodId, title, imageUrl, description }: Product) {
   return {
     type: UPDATE_PRODUCT,
-    pid: id,
+    pid: prodId,
     productData: {
       title,
       imageUrl,

@@ -12,7 +12,7 @@ interface ICartCards {
   prodQuantity: number;
   prodTitle: string;
   prodId: string;
-  prodSum: string;
+  prodSum: number;
 }
 
 const CartCards = ({
@@ -23,7 +23,7 @@ const CartCards = ({
   prodId,
   prodSum
 }: ICartCards) => {
-  
+
   const dispatch = useDispatch();
   const product = useSelector((state:RootStateOrAny)=>{
     return state.products.availableProducts.find((item: { id: string; })=>item.id === prodId);
