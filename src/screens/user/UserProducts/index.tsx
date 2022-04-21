@@ -17,6 +17,8 @@ const UserProducts = ({ navigation }: IUserProduct) => {
   const userProducts = useSelector(
     (state: RootStateOrAny) => state.products.userProducts
   );
+  userProducts.sort((a: {title: string},b: {title: string})=> a.title > b.title ? 1 :-1);
+
   const dispatch = useDispatch();
   return (
     <FlatList

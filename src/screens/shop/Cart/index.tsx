@@ -27,7 +27,7 @@ const Cart = () => {
 
     return transformedCartItems;
   });
-  cartItems.sort((a,b)=>a.prodTitle > b.prodTitle ? 1 : -1); // display cartItems alphabetically
+  cartItems.sort((a: {prodTitle: string },b: { prodTitle: string})=>a.prodTitle > b.prodTitle ? 1 : -1); // display cartItems alphabetically
 
 
   return (
