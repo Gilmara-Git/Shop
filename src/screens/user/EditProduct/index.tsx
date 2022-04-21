@@ -1,9 +1,10 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { Text, ScrollView, View, TextInput } from "react-native";
-import { useSelector, RootStateOrAny } from "react-redux";
+import { useSelector, RootStateOrAny, useDispatch } from "react-redux";
 import { NavigationStackProp } from "react-navigation-stack";
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import  HeaderButton  from '../../../components/UI/HeaderButton';
+import * as productActions from '../../../store/actions/products';
 import { styles } from "./styles";
 
 interface IEditProduct {
@@ -12,30 +13,40 @@ interface IEditProduct {
 
 const EditProduct = ({ navigation }: IEditProduct) => {
   const prodId = navigation.getParam("prodId");
-  const productDetails = useSelector((state: RootStateOrAny) =>
+  const hasEditProduct = useSelector((state: RootStateOrAny) =>
     state.products.userProducts.find(
       (product: { id: string }) => product.id === prodId
     )
   );
 
   const [title, setTitle] = useState(
-    productDetails ? productDetails.title : ""
+    hasEditProduct ? hasEditProduct.title : ""
   );
-  const [image, setImage] = useState(
-    productDetails ? productDetails.imageUrl : ""
+  const [imageUrl, setImageUrl] = useState(
+    hasEditProduct ? hasEditProduct.imageUrl : ""
   );
   const [description, setDescription] = useState(
-    productDetails ? productDetails.description : ""
+    hasEditProduct ? hasEditProduct.description : ""
   );
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState('');
+
+  const dispatch = useDispatch();
 
   const submitHandler = useCallback(()=> {
-      console.log('submitting!!');
-}, []);
+  
+    if(hasEditProduct){
+      dispatch(productActions.updateProduct({prodId, title, imageUrl, description}))
+    }else{
+      dispatch(productActions.createProduct({title, imageUrl, description, price}))
+    }
+    navigation.goBack();
+}, [dispatch, prodId, title, imageUrl, description, price]);
 
     useEffect(()=>{
         navigation.setParams({submit : submitHandler})
-    }, [submitHandler])
+    }, [submitHandler]);
+
+    
 
   return (
     <ScrollView contentContainerStyle={styles.formContainer}>
@@ -65,8 +76,8 @@ const EditProduct = ({ navigation }: IEditProduct) => {
         <TextInput
           placeholder="image Url"
           multiline={true}
-          value={image}
-          onChangeText={(textInput) => setImage(textInput)}
+          value={imageUrl}
+          onChangeText={(textInput) => setImageUrl(textInput)}
           style={styles.editableInput}
         ></TextInput>
       </View>
@@ -87,8 +98,7 @@ const EditProduct = ({ navigation }: IEditProduct) => {
 
 EditProduct.navigationOptions = (navData: any) => {
   const hasParam = navData.navigation.getParam("prodId");
-  const submitFn = navData.navigation.getParam("submit");
-  console.log(submitFn, 'submitFn')
+  const submitFn = navData.navigation.getParam("submit"); 
   return {
     headerTitle: hasParam ? "Edit Product" : "Add Product",
     headerRight:()=>(
