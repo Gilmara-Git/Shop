@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     },
     editableInput:{
         fontFamily: themes.fonts.MSA600SemiBoldItalic,
-        color: themes.colors.primary,
+        color: themes.colors.orange,
         paddingVertical: '2%',
         fontSize: 16, 
         borderBottomWidth: 1,

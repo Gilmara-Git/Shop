@@ -2,22 +2,23 @@ import { StyleSheet } from 'react-native';
 import themes from '../../../global/styles/themes';
 
 export const styles = StyleSheet.create({
-    totalContainer:{
+    totalContainer:{        
         flexDirection: 'row',
         height: 62,
         justifyContent: 'space-between',
         padding: 15,
         marginHorizontal:'8%',    
         margin: '5%',
-        backgroundColor: themes.colors.beige,
         borderRadius: 8,
         alignItems:'center',
+        backgroundColor: themes.colors.orange,
         shadowColor: themes.colors.lavender,
-        shadowOffset: {width: 0, height: 2},
+        shadowOffset: { width: 0, height: 2},
         shadowRadius: 10,
         shadowOpacity: 0.26,
-        elevation: 5
-    },
+        elevation: 5,
+      
+    },  
     buttonContainer:{
         alignItems: 'center',
         justifyContent: 'center',
@@ -28,10 +29,10 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: '5%',
         borderRadius: 8,
-        width: '100%'
-    },
+        width: '100%',
+        },
     orderText:{
-        color: themes.colors.white,
+        color: themes.colors.lavender,
         fontFamily: themes.fonts.MSATitle700Bold,
         fontSize: 14,
         textAlign: 'center'
@@ -40,7 +41,7 @@ export const styles = StyleSheet.create({
     total:{
         fontSize: 19,
         fontFamily: themes.fonts.MSATitle700Bold,
-        color: themes.colors.navy
+        color: themes.colors.lavender
     },
     amountContainer:{
         backgroundColor: themes.colors.lavender,

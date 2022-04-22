@@ -32,8 +32,7 @@ const EditProduct = ({ navigation }: IEditProduct) => {
 
   const dispatch = useDispatch();
 
-  const submitHandler = useCallback(()=> {
-  
+  const submitHandler = useCallback(()=> {  
     if(hasEditProduct){
       dispatch(productActions.updateProduct({prodId, title, imageUrl, description}))
     }else{
