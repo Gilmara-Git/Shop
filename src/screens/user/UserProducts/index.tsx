@@ -1,4 +1,4 @@
-import { FlatList, Platform } from "react-native";
+import { FlatList, Platform, Alert } from "react-native";
 import ProductItem from "../../../components/ProductItem";
 import { RootStateOrAny, useSelector, useDispatch } from "react-redux";
 import AndroidButton from "../../../components/AndroidButton";
@@ -14,11 +14,16 @@ interface IUserProduct {
 
 const UserProducts = ({ navigation }: IUserProduct) => {
 
+  
   const userProducts = useSelector(
     (state: RootStateOrAny) => state.products.userProducts
-  );
-  userProducts.sort((a: {title: string},b: {title: string})=> a.title > b.title ? 1 :-1);
-
+    );
+    userProducts.sort((a: {title: string},b: {title: string})=> a.title > b.title ? 1:-1);
+    
+    const deleteConfirmationHandler = (id: { productId: string; })=>{
+      Alert.alert('Delete', 'Are you sure you want to delete this product?', 
+      [{ text: 'Cancel', style: 'default'}, { text:'Delete', style: 'destructive', onPress: ()=>{dispatch(productActions.deleteProduct(id))}}])
+    };
   const dispatch = useDispatch();
   return (
     <FlatList
@@ -55,16 +60,12 @@ const UserProducts = ({ navigation }: IUserProduct) => {
           {Platform.OS === "ios" ? (
             <IosButton
               title="Delete"
-              onPress={() => {
-                dispatch(productActions.deleteProduct(itemData.item.id));
-              }}
+              onPress={() =>deleteConfirmationHandler(itemData.item.id)}// this way we can send the id
             />
           ) : (
             <AndroidButton
               title="Delete"
-              onPress={() =>
-                dispatch(productActions.deleteProduct(itemData.item.id))
-              }
+              onPress={deleteConfirmationHandler.bind(this, itemData.item.id)}// this way we can send the id as well
             />
           )}
         </ProductItem>
