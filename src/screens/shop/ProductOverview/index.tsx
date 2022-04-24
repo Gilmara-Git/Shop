@@ -14,11 +14,11 @@ interface INavigationProps  {
 
 const ProductOverview = ({ navigation }: INavigationProps) => {
 
-
     const products = useSelector(
     (state: RootStateOrAny) => state.products.availableProducts
-  );
-
+    )      
+  products.sort((a: { title: string; },b: { title: string; })=>a.title > b.title ? 1 : -1);
+  
   const dispatch = useDispatch();
 
   return (

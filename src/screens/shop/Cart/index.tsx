@@ -27,7 +27,7 @@ const Cart = () => {
 
     return transformedCartItems;
   });
-  cartItems.sort((a,b)=>a.prodTitle > b.prodTitle ? 1 : -1); // display cartItems alphabetically
+  cartItems.sort((a: {prodTitle: string },b: { prodTitle: string})=>a.prodTitle > b.prodTitle ? 1 : -1); // display cartItems alphabetically
 
 
   return (
@@ -48,16 +48,18 @@ const Cart = () => {
       />
 
       <View style={styles.totalContainer}>
+       
+
         <Text style={styles.total}>Total</Text>
         <View style={styles.buttonContainer}>
           {cartItems.length !== 0 && (
             <TouchableOpacity
-              style={styles.OrderButton}
-              activeOpacity={0.5}
-              onPress={() => {
-               dispatch(ordersActions.addOrder({cartItems, totalAmount: cartTotalAmount}))
+            style={styles.OrderButton}
+            activeOpacity={0.5}
+            onPress={() => {
+              dispatch(ordersActions.addOrder({cartItems, totalAmount: cartTotalAmount}))
               }}
-            >
+              >
               <Text style={styles.orderText}>Order</Text>
             </TouchableOpacity>
           )}
@@ -65,6 +67,7 @@ const Cart = () => {
         <View style={styles.amountContainer}>
           <Text style={styles.amount}>$ {Math.abs(cartTotalAmount).toFixed(2)}</Text>
         </View>
+      
       </View>
     </>
   );

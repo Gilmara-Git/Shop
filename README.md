@@ -13,7 +13,7 @@ If you click on a product, a **product detail** page is displayed and user can a
 <p>User is able to increase, decrease items from the <strong>cart</strong>  or delete an item at once, no matter the previous quantity selected. The total amount in the <strong>cart</strong> reflects the change.</p>
 Then, users can place their orders, but clicking on Order.
 <p>After placing an order they can go to the menu on the top left and navigate to Orders.</p>
-<p>Each user has an admin access, so they can add/create new products, delete or edit an existing one(except the price field).</p>
+<p>Each user has an admin access, so they can add|create new products, delete or edit an existing one(except the price field). This is all being managed|controlled by react-redux store (Actions and reducers) </p>
 <h1 align='center'><img src='https://ik.imagekit.io/cnbmdh4b9w/ezgif.com-gif-maker__5__FnEwHwJ12.gif?ik-sdk-version=javascript-1.4.3&updatedAt=1649533857489'/></h1>
 
 ## Motivation

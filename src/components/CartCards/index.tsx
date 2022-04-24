@@ -1,11 +1,12 @@
 import { View, Image, Text, TouchableOpacity } from "react-native";
 import { useSelector , RootStateOrAny } from 'react-redux';
+
 import { AntDesign } from "@expo/vector-icons";
-import themes from "../../global/styles/themes";
-import styles from "./styles";
 import { EvilIcons } from "@expo/vector-icons";
 import  { useDispatch } from 'react-redux';
 import * as cartActions from '../../store/actions/cart';
+import themes from "../../global/styles/themes";
+import styles from "./styles";
 interface ICartCards {
   prodImageURL: string;
   prodPrice: number;

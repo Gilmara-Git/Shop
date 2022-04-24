@@ -41,7 +41,7 @@ price:{
 
 },
 button:{ 
-    marginTop:10,
+    margin:3,
     alignItems: 'center'   
 },   
 });
