@@ -23,7 +23,11 @@ export const styles = StyleSheet.create({
         paddingVertical: '2%',
         fontSize: 16, 
         borderBottomWidth: 1,
-        borderColor:themes.colors.lavender
-        
+        borderColor:themes.colors.lavender  
+    },
+    title:{
+        fontFamily: themes.fonts.MSA600SemiBoldItalic,
+        color: themes.colors.orange,
+        fontSize: 14
     }
 });
